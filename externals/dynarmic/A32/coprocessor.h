@@ -1,0 +1,1 @@
+../../../../dynarmic/frontend/A32/coprocessor.h
