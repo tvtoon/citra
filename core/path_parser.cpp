@@ -4,7 +4,9 @@
 
 #include <algorithm>
 #include <set>
+#include "common/common_funcs.h"
 #include "common/file_util.h"
+#include "common/logging/log.h"
 #include "common/string_util.h"
 #include "path_parser.h"
 

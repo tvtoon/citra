@@ -6,6 +6,8 @@
 #include <cryptopp/aes.h>
 #include <cryptopp/modes.h>
 #include "common/alignment.h"
+#include "common/common_funcs.h"
+#include "common/logging/log.h"
 #include "cia_common.h"
 #include "ticket.h"
 #include "key.h"

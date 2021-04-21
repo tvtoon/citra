@@ -764,7 +764,9 @@ void JitShader::Compile_JMP(Instruction instr) {
     else if (instr.opcode.Value() == OpCode::Id::JMPU)
         Compile_UniformCondition(instr);
     else
+{
         UNREACHABLE();
+}
 
     bool inverted_condition =
         (instr.opcode.Value() == OpCode::Id::JMPU) && (instr.flow_control.num_instructions & 1);

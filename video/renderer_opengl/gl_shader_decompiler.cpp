@@ -11,7 +11,9 @@
 #include <fmt/format.h>
 #include <nihstro/shader_bytecode.h>
 #include "common/assert.h"
+#include "common/common_funcs.h"
 #include "common/common_types.h"
+#include "common/logging/log.h"
 #include "../renderer_opengl/gl_shader_decompiler.h"
 
 namespace OpenGL::ShaderDecompiler {

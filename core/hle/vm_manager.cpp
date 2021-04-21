@@ -5,6 +5,8 @@
 #include <algorithm>
 #include <iterator>
 #include "common/assert.h"
+#include "common/common_funcs.h"
+#include "common/logging/log.h"
 #include "errors.h"
 #include "vm_manager.h"
 #include "core/memory.h"

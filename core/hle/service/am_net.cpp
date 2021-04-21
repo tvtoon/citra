@@ -3,6 +3,8 @@
 // Refer to the license.txt file included.
 
 #include "common/archives.h"
+#include "common/common_funcs.h"
+#include "common/logging/log.h"
 #include "am_net.h"
 
 namespace Service::AM {

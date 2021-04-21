@@ -4,7 +4,9 @@
 
 #include <algorithm>
 #include "common/assert.h"
+#include "common/common_funcs.h"
 #include "common/common_types.h"
+#include "common/logging/log.h"
 #include "common/vector_math.h"
 #include "../regs_texturing.h"
 #include "../swrasterizer/texturing.h"

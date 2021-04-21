@@ -111,15 +111,17 @@ void DSP_DSP::ReadPipe(Kernel::HLERequestContext& ctx) {
     const u32 channel = rp.Pop<u32>();
     const u32 peer = rp.Pop<u32>();
     const u16 size = rp.Pop<u16>();
-
     const DspPipe pipe = static_cast<DspPipe>(channel);
     const u16 pipe_readable_size = static_cast<u16>(system.DSP().GetPipeReadableSize(pipe));
-
     std::vector<u8> pipe_buffer;
+
     if (pipe_readable_size >= size)
         pipe_buffer = system.DSP().PipeRead(pipe, size);
     else
-        UNREACHABLE(); // No more data is in pipe. Hardware hangs in this case; Should never happen.
+{
+        UNREACHABLE();
+// No more data is in pipe. Hardware hangs in this case; Should never happen.
+}
 
     IPC::RequestBuilder rb = rp.MakeBuilder(1, 2);
     rb.Push(RESULT_SUCCESS);

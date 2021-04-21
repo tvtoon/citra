@@ -4,7 +4,9 @@
 
 #include <memory>
 #include "common/archives.h"
+#include "common/common_funcs.h"
 #include "common/file_util.h"
+#include "common/logging/log.h"
 #include "archive_sdmcwriteonly.h"
 #include "directory_backend.h"
 #include "errors.h"

@@ -3,7 +3,7 @@
 // Refer to the license.txt file included.
 
 #pragma once
-
+/*
 #include <cstdlib>
 #include "common/common_funcs.h"
 #include "common/logging/log.h"
@@ -56,3 +56,18 @@ assert_noinline_call(const Fn& fn) {
 
 #define UNIMPLEMENTED() LOG_CRITICAL(Debug, "Unimplemented code!")
 #define UNIMPLEMENTED_MSG(_a_, ...) LOG_CRITICAL(Debug, _a_, __VA_ARGS__)
+*/
+
+#include <cassert>
+#include <iostream>
+
+#define ASSERT(expr) assert(expr)
+// if (UNLIKELY(!(expr)))
+#define ASSERT_FALSE(...) std::cout << "ZOMG FALSE!" << std::endl << "Message: " <<  __VA_ARGS__; abort()
+#define ASSERT_MSG(expr, ...) assert(expr)
+#define DEBUG_ASSERT(expr) assert(expr)
+#define DEBUG_ASSERT_MSG(expr, ...) assert(expr)
+#define UNREACHABLE() ASSERT_FALSE("Unreachable code!")
+#define UNREACHABLE_MSG(...) ASSERT_FALSE("Unreachable code!")
+#define UNIMPLEMENTED() 
+#define UNIMPLEMENTED_MSG(_a_, ...) 

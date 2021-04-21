@@ -5,6 +5,8 @@
 #include <tuple>
 #include <utility>
 #include "common/archives.h"
+#include "common/common_funcs.h"
+#include "common/logging/log.h"
 #include "archive_other_savedata.h"
 #include "errors.h"
 #include "hle/process.h"

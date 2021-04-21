@@ -8,8 +8,10 @@
 #include <vector>
 #include <fmt/format.h>
 #include "common/archives.h"
+#include "common/common_funcs.h"
 #include "common/common_types.h"
 #include "common/file_util.h"
+#include "common/logging/log.h"
 #include "archive_systemsavedata.h"
 #include "errors.h"
 #include "savedata_archive.h"
