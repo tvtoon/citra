@@ -25,7 +25,9 @@
 #include "ncch.h"
 #include "smdh.h"
 #include "core/memory.h"
+#ifdef ENABLE_WEB_SERVICE
 #include "network/network.h"
+#endif
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 // Loader namespace
@@ -201,13 +203,14 @@ ResultStatus AppLoader_NCCH::Load(std::shared_ptr<Kernel::Process>& process) {
     auto& system = Core::System::GetInstance();
     system.TelemetrySession().AddField(Telemetry::FieldType::Session, "ProgramId", program_id);
 
+#ifdef ENABLE_WEB_SERVICE
     if (auto room_member = Network::GetRoomMember().lock()) {
         Network::GameInfo game_info;
         ReadTitle(game_info.name);
         game_info.id = ncch_program_id;
         room_member->SendGameInfo(game_info);
     }
-
+#endif
     is_loaded = true; // Set state to loaded
 
     result = LoadExec(process); // Load the executable into memory for booting

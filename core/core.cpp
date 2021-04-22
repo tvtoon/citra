@@ -45,7 +45,9 @@
 #include "core/movie.h"
 #include "rpc_server.h"
 #include "core/settings.h"
+#ifdef ENABLE_WEB_SERVICE
 #include "network/network.h"
+#endif
 #include "../video/renderer_base.h"
 #include "../video/video_core.h"
 
@@ -553,12 +555,12 @@ void System::Shutdown(bool is_deserializing) {
     if (video_dumper->IsDumping()) {
         video_dumper->StopDumping();
     }
-
+#ifdef ENABLE_WEB_SERVICE
     if (auto room_member = Network::GetRoomMember().lock()) {
         Network::GameInfo game_info{};
         room_member->SendGameInfo(game_info);
     }
-
+#endif
     LOG_DEBUG(Core, "Shutdown OK");
 }
 

@@ -19,7 +19,9 @@
 #include "input/main.h"
 #include "input/motion_emu.h"
 #include "input/sdl.h"
+#ifdef ENABLE_WEB_SERVICE
 #include "network/network.h"
+#endif
 #include "video/renderer_base.h"
 #include "video/video_core.h"
 
@@ -140,7 +142,9 @@ EmuWindow_SDL2::EmuWindow_SDL2(bool fullscreen) {
     }
 
     InputCommon::Init();
+#ifdef ENABLE_WEB_SERVICE
     Network::Init();
+#endif
 
     SDL_SetMainReady();
 
@@ -212,7 +216,9 @@ EmuWindow_SDL2::EmuWindow_SDL2(bool fullscreen) {
 
 EmuWindow_SDL2::~EmuWindow_SDL2() {
     core_context.reset();
+#ifdef ENABLE_WEB_SERVICE
     Network::Shutdown();
+#endif
     InputCommon::Shutdown();
     SDL_GL_DeleteContext(window_context);
     SDL_Quit();

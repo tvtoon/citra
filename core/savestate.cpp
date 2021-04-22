@@ -12,7 +12,9 @@
 #include "cheats.h"
 #include "core/core.h"
 #include "core/savestate.h"
+#ifdef ENABLE_WEB_SERVICE
 #include "network/network.h"
+#endif
 #include "../video/video_core.h"
 
 namespace Core {
@@ -126,10 +128,11 @@ void System::SaveState(u32 slot) const {
 }
 
 void System::LoadState(u32 slot) {
+#ifdef ENABLE_WEB_SERVICE
     if (Network::GetRoomMember().lock()->IsConnected()) {
         throw std::runtime_error("Unable to load while connected to multiplayer");
     }
-
+#endif
     const auto path = GetSaveStatePath(title_id, slot);
 
     std::vector<u8> decompressed;

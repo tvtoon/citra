@@ -42,7 +42,9 @@
 #include "core/loader.h"
 #include "core/movie.h"
 #include "core/settings.h"
+#ifdef ENABLE_WEB_SERVICE
 #include "network/network.h"
+#endif
 #include "video/renderer_base.h"
 
 #undef _UNICODE
@@ -77,6 +79,7 @@ static void PrintVersion() {
     std::cout << "Citra " << Common::g_scm_branch << " " << Common::g_scm_desc << std::endl;
 }
 
+#ifdef ENABLE_WEB_SERVICE
 static void OnStateChanged(const Network::RoomMember::State& state) {
     switch (state) {
     case Network::RoomMember::State::Idle:
@@ -168,6 +171,7 @@ static void OnStatusMessageReceived(const Network::StatusMessageEntry& msg) {
     if (!message.empty())
         std::cout << std::endl << "* " << message << std::endl << std::endl;
 }
+#endif
 
 static void InitializeLogging() {
     Log::Filter log_filter(Log::Level::Debug);
@@ -214,11 +218,16 @@ int main(int argc, char** argv) {
     std::string nickname{};
     std::string password{};
     std::string address{};
+#ifdef ENABLE_WEB_SERVICE
     u16 port = Network::DefaultRoomPort;
+#endif
 
     static struct option long_options[] = {
         {"gdbport", required_argument, 0, 'g'},     {"install", required_argument, 0, 'i'},
-        {"multiplayer", required_argument, 0, 'm'}, {"movie-record", required_argument, 0, 'r'},
+#ifdef ENABLE_WEB_SERVICE
+        {"multiplayer", required_argument, 0, 'm'},
+#endif
+ {"movie-record", required_argument, 0, 'r'},
         {"movie-play", required_argument, 0, 'p'},  {"dump-video", required_argument, 0, 'd'},
         {"fullscreen", no_argument, 0, 'f'},        {"help", no_argument, 0, 'h'},
         {"version", no_argument, 0, 'v'},           {0, 0, 0, 0},
@@ -250,6 +259,8 @@ int main(int argc, char** argv) {
                     exit(1);
                 break;
             }
+
+#ifdef ENABLE_WEB_SERVICE
             case 'm': {
                 use_multiplayer = true;
                 const std::string str_arg(optarg);
@@ -282,6 +293,7 @@ int main(int argc, char** argv) {
                 }
                 break;
             }
+#endif
             case 'r':
                 movie_record = optarg;
                 break;
@@ -384,6 +396,7 @@ int main(int argc, char** argv) {
 
     system.TelemetrySession().AddField(Telemetry::FieldType::App, "Frontend", "SDL");
 
+#ifdef ENABLE_WEB_SERVICE
     if (use_multiplayer) {
         if (auto member = Network::GetRoomMember().lock()) {
             member->BindOnChatMessageRecieved(OnMessageReceived);
@@ -399,7 +412,7 @@ int main(int argc, char** argv) {
             return 0;
         }
     }
-
+#endif
     if (!movie_play.empty()) {
         Core::Movie::GetInstance().StartPlayback(movie_play);
     }

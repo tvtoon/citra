@@ -40,7 +40,9 @@
 #include "news.h"
 #include "nfc.h"
 #include "nim.h"
+#ifdef ENABLE_WEB_SERVICE
 #include "nwm.h"
+#endif
 #include "pm.h"
 #include "ps_ps.h"
 #include "ptm.h"
@@ -86,7 +88,11 @@ const std::array<ServiceModuleInfo, 40> service_module_map{
      {"NFC", 0x00040130'00004002, NFC::InstallInterfaces},
      {"NIM", 0x00040130'00002C02, NIM::InstallInterfaces},
      {"NS", 0x00040130'00008002, APT::InstallInterfaces},
+#ifdef ENABLE_WEB_SERVICE
      {"NWM", 0x00040130'00002D02, NWM::InstallInterfaces},
+#else
+     {"NWM", 0x00040130'00002D02, nullptr},
+#endif
      {"PTM", 0x00040130'00002202, PTM::InstallInterfaces},
      {"QTM", 0x00040130'00004202, QTM::InstallInterfaces},
      {"CSND", 0x00040130'00002702, CSND::InstallInterfaces},
