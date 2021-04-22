@@ -31,11 +31,11 @@ class MemorySystem;
 namespace AudioCore {
 class DspInterface;
 }
-
+/*
 namespace RPC {
 class RPCServer;
 }
-
+*/
 namespace Service {
 namespace SM {
 class ServiceManager;
@@ -355,7 +355,7 @@ private:
     std::shared_ptr<Frontend::ImageInterface> registered_image_interface;
 
     /// RPC Server for scripting support
-    std::unique_ptr<RPC::RPCServer> rpc_server;
+//    std::unique_ptr<RPC::RPCServer> rpc_server;
 
     std::unique_ptr<Service::FS::ArchiveManager> archive_manager;
 
