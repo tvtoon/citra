@@ -1,6 +1,6 @@
 PROJECT = citra
 MAJVER = 1.0
-MINVER = 0
+MINVER = 1
 LIBS = ${PROJECT}
 PROGS = ${PROJECT}
 
@@ -124,6 +124,14 @@ include make/exconf.noasm
 include make/build
 
 dist-clean: clean
+
+# Objects using the core.
+clean-core:
+	rm -f citra.o emu_window_sdl2.o audio/dsp_interface.o audio/lle.o audio/hle/decoder.o audio/hle/ffmpeg_decoder.o audio/hle/hle.o core/3dsx.o core/archive_ncch.o core/archive_savedata.o core/archive_selfncch.o core/arm_dynarmic.o core/arm_dyncom.o core/arm_dyncom_interpreter.o core/armstate.o core/cheats.o core/core.o core/custom_tex_cache.o core/elf.o core/gateway_cheat.o core/gdbstub.o core/gpu.o core/loader.o core/memory.o core/movie.o core/ncch_container.o core/ncch.o core/rpc_server.o core/savestate.o core/server.o core/settings.o core/telemetry_session.o core/y2r.o core/frontend/default_applets.o core/frontend/swkbd.o core/hle/applet.o core/hle/erreula.o core/hle/hle_ipc.o core/hle/ipc.o core/hle/memory.o core/hle/mii_selector.o core/hle/mint.o core/hle/mutex.o core/hle/shared_page.o core/hle/svc.o core/hle/swkbd.o core/hle/thread.o core/hle/timer.o core/hle/service/ac.o core/hle/service/act.o core/hle/service/am.o core/hle/service/applet_manager.o core/hle/service/apt.o core/hle/service/archive.o core/hle/service/boss.o core/hle/service/cam.o core/hle/service/cecd.o core/hle/service/cfg.o core/hle/service/cro_helper.o core/hle/service/csnd_snd.o core/hle/service/dlp.o core/hle/service/dsp_dsp.o core/hle/service/err_f.o core/hle/service/extra_hid.o core/hle/service/file.o core/hle/service/frd.o core/hle/service/fs_user.o core/hle/service/gsp.o core/hle/service/gsp_gpu.o core/hle/service/hid.o core/hle/service/http_c.o core/hle/service/ir.o core/hle/service/ir_rst.o core/hle/service/ir_user.o core/hle/service/ldr_ro.o core/hle/service/mic_u.o core/hle/service/mvd.o core/hle/service/ndm_u.o core/hle/service/news.o core/hle/service/nfc.o core/hle/service/nim.o core/hle/service/nim_u.o core/hle/service/ns.o core/hle/service/nwm.o core/hle/service/nwm_uds.o core/hle/service/pm.o core/hle/service/ps_ps.o core/hle/service/ptm.o core/hle/service/pxi.o core/hle/service/qtm.o core/hle/service/service.o core/hle/service/sm.o core/hle/service/soc_u.o core/hle/service/srv.o core/hle/service/ssl_c.o core/hle/service/y2r_u.o
+#audio/hle/fdk_decoder.o audio/hle/mediandk_decoder.o audio/hle/wmf_decoder.o
+	rm -f video/renderer_opengl/gl_rasterizer.o video/renderer_opengl/gl_rasterizer_cache.o video/renderer_opengl/gl_shader_disk_cache.o video/renderer_opengl/gl_shader_gen.o video/renderer_opengl/gl_shader_manager.o video/renderer_opengl/renderer_opengl.o
+	rm -f dedicated_room/citra-room.o
+#        rm -f citra_qt/bootmanager.o citra_qt/cheats.o citra_qt/compatdb.o citra_qt/discord_impl.o citra_qt/main.o citra_qt/configuration/configure_audio.o citra_qt/configuration/configure_camera.o citra_qt/configuration/configure_debug.o citra_qt/configuration/configure_enhancements.o citra_qt/configuration/configure_general.o citra_qt/configuration/configure_graphics.o citra_qt/configuration/configure_system.o citra_qt/debugger/registers.o citra_qt/debugger/wait_tree.o citra_qt/debugger/graphics/graphics_cmdlists.o citra_qt/debugger/graphics/graphics_surface.o citra_qt/debugger/ipc/recorder.o
 
 clean-ext:
 	rm -f externals/*/*.o
