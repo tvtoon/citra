@@ -11,10 +11,12 @@
 #include <string>
 #include <vector>
 #include <boost/container/small_vector.hpp>
+/*
 #include <boost/serialization/assume_abstract.hpp>
 #include <boost/serialization/shared_ptr.hpp>
 #include <boost/serialization/unique_ptr.hpp>
 #include <boost/serialization/vector.hpp>
+*/
 #include "common/common_types.h"
 #include "common/serialization/boost_small_vector.hpp"
 #include "common/swap.h"
@@ -75,9 +77,11 @@ public:
         virtual ~SessionDataBase() = default;
 
     private:
+/*
         template <class Archive>
         void serialize(Archive& ar, const unsigned int file_version) {}
         friend class boost::serialization::access;
+*/
     };
 
 protected:
@@ -103,23 +107,27 @@ protected:
 
     private:
         SessionInfo() = default;
+/*
         template <class Archive>
         void serialize(Archive& ar, const unsigned int file_version) {
             ar& session;
             ar& data;
         }
         friend class boost::serialization::access;
+*/
     };
     /// List of sessions that are connected to this handler. A ServerSession whose server endpoint
     /// is an HLE implementation is kept alive by this list for the duration of the connection.
     std::vector<SessionInfo> connected_sessions;
 
 private:
+/*
     template <class Archive>
     void serialize(Archive& ar, const unsigned int file_version) {
         ar& connected_sessions;
     }
     friend class boost::serialization::access;
+*/
 };
 
 // NOTE: The below classes are ephemeral and don't need serialization
@@ -155,7 +163,7 @@ private:
     IPC::MappedBufferPermissions perms;
 
     MappedBuffer();
-
+/*
     template <class Archive>
     void serialize(Archive& ar, const unsigned int) {
         ar& id;
@@ -165,6 +173,7 @@ private:
         ar& perms;
     }
     friend class boost::serialization::access;
+*/
 };
 
 /**
@@ -222,9 +231,11 @@ public:
                             ThreadWakeupReason reason) = 0;
 
     private:
+/*
         template <class Archive>
         void serialize(Archive& ar, const unsigned int) {}
         friend class boost::serialization::access;
+*/
     };
 
     /**
@@ -304,6 +315,7 @@ private:
     boost::container::small_vector<MappedBuffer, 8> request_mapped_buffers;
 
     HLERequestContext();
+/*
     template <class Archive>
     void serialize(Archive& ar, const unsigned int) {
         ar& cmd_buf;
@@ -314,8 +326,9 @@ private:
         ar& request_mapped_buffers;
     }
     friend class boost::serialization::access;
+*/
 };
 
 } // namespace Kernel
 
-BOOST_CLASS_EXPORT_KEY(Kernel::HLERequestContext::ThreadCallback)
+//BOOST_CLASS_EXPORT_KEY(Kernel::HLERequestContext::ThreadCallback)

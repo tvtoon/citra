@@ -14,9 +14,11 @@
 #include <string_view>
 #include <type_traits>
 #include <vector>
+/*
 #include <boost/serialization/split_member.hpp>
 #include <boost/serialization/string.hpp>
 #include <boost/serialization/wrapper.hpp>
+*/
 #include "common/common_types.h"
 #ifdef _MSC_VER
 #include "common/string_util.h"
@@ -44,7 +46,7 @@ enum class UserPath {
 
 // Replaces install-specific paths with standard placeholders, and back again
 std::string SerializePath(const std::string& input, bool is_saving);
-
+/*
 // A serializable path string
 struct Path : public boost::serialization::wrapper_traits<const Path> {
     std::string& str;
@@ -69,7 +71,7 @@ struct Path : public boost::serialization::wrapper_traits<const Path> {
     BOOST_SERIALIZATION_SPLIT_MEMBER();
     friend class boost::serialization::access;
 };
-
+*/
 // FileSystem tree node/
 struct FSTEntry {
     bool isDirectory;
@@ -79,6 +81,7 @@ struct FSTEntry {
     std::vector<FSTEntry> children;
 
 private:
+/*
     template <class Archive>
     void serialize(Archive& ar, const unsigned int) {
         ar& isDirectory;
@@ -88,6 +91,7 @@ private:
         ar& children;
     }
     friend class boost::serialization::access;
+*/
 };
 
 // Returns true if file filename exists
@@ -357,7 +361,7 @@ private:
     std::string filename;
     std::string openmode;
     u32 flags;
-
+/*
     template <class Archive>
     void serialize(Archive& ar, const unsigned int) {
         ar& Path::make(filename);
@@ -374,6 +378,7 @@ private:
         }
     }
     friend class boost::serialization::access;
+*/
 };
 
 } // namespace FileUtil

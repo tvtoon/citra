@@ -11,10 +11,12 @@
 #include <string>
 #include <vector>
 #include <boost/container/static_vector.hpp>
+/*
 #include <boost/serialization/array.hpp>
 #include <boost/serialization/base_object.hpp>
 #include <boost/serialization/string.hpp>
 #include <boost/serialization/vector.hpp>
+*/
 #include "common/bit_field.h"
 #include "common/common_types.h"
 #include "handle_table.h"
@@ -31,6 +33,7 @@ struct AddressMapping {
     bool unk_flag;
 
 private:
+/*
     friend class boost::serialization::access;
     template <class Archive>
     void serialize(Archive& ar, const unsigned int file_version) {
@@ -39,6 +42,7 @@ private:
         ar& read_only;
         ar& unk_flag;
     }
+*/
 };
 
 union ProcessFlags {
@@ -75,6 +79,7 @@ public:
         u32 size = 0;
 
     private:
+/*
         friend class boost::serialization::access;
         template <class Archive>
         void serialize(Archive& ar, const unsigned int file_version) {
@@ -82,6 +87,7 @@ public:
             ar& addr;
             ar& size;
         }
+*/
     };
 
     std::string GetTypeName() const override {
@@ -131,6 +137,7 @@ public:
     u64 program_id;
 
 private:
+/*
     friend class boost::serialization::access;
     template <class Archive>
     void serialize(Archive& ar, const unsigned int file_version) {
@@ -141,6 +148,7 @@ private:
         ar& name;
         ar& program_id;
     }
+*/
 };
 
 class Process final : public Object {
@@ -235,14 +243,16 @@ public:
 
 private:
     KernelSystem& kernel;
-
+/*
     friend class boost::serialization::access;
     template <class Archive>
     void serialize(Archive& ar, const unsigned int file_version);
+*/
 };
 } // namespace Kernel
-
+/*
 BOOST_CLASS_EXPORT_KEY(Kernel::CodeSet)
 BOOST_CLASS_EXPORT_KEY(Kernel::Process)
 CONSTRUCT_KERNEL_OBJECT(Kernel::CodeSet)
 CONSTRUCT_KERNEL_OBJECT(Kernel::Process)
+*/

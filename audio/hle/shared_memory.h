@@ -8,7 +8,7 @@
 #include <cstddef>
 #include <memory>
 #include <type_traits>
-#include <boost/serialization/access.hpp>
+//#include <boost/serialization/access.hpp>
 #include "../audio_types.h"
 #include "common.h"
 #include "common/bit_field.h"
@@ -57,12 +57,13 @@ private:
         return (value << 16) | (value >> 16);
     }
     u32_le storage;
-
+/*
     template <class Archive>
     void serialize(Archive& ar, const unsigned int) {
         ar& storage;
     }
     friend class boost::serialization::access;
+*/
 };
 static_assert(std::is_trivially_copyable<u32_dsp>::value, "u32_dsp isn't trivially copyable");
 

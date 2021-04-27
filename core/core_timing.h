@@ -23,8 +23,10 @@
 #include <string>
 #include <unordered_map>
 #include <vector>
+/*
 #include <boost/serialization/split_member.hpp>
 #include <boost/serialization/vector.hpp>
+*/
 #include "common/common_types.h"
 #include "common/logging/log.h"
 #include "common/threadsafe_queue.h"
@@ -148,6 +150,7 @@ public:
         bool operator<(const Event& right) const;
 
     private:
+/*
         template <class Archive>
         void save(Archive& ar, const unsigned int) const {
             ar& time;
@@ -169,6 +172,7 @@ public:
         friend class boost::serialization::access;
 
         BOOST_SERIALIZATION_SPLIT_MEMBER()
+*/
     };
 
     // currently Service::HID::pad_update_ticks is the smallest interval for an event that gets
@@ -230,7 +234,7 @@ public:
         // Stores a scaling for the internal clockspeed. Changing this number results in
         // under/overclocking the guest cpu
         double cpu_clock_scale = 1.0;
-
+/*
         template <class Archive>
         void serialize(Archive& ar, const unsigned int) {
             MoveEvents();
@@ -246,6 +250,7 @@ public:
             ar& idled_cycles;
         }
         friend class boost::serialization::access;
+*/
     };
 
     explicit Timing(std::size_t num_cores, u32 cpu_clock_percentage);
@@ -291,7 +296,7 @@ private:
     // Stores a scaling for the internal clockspeed. Changing this number results in
     // under/overclocking the guest cpu
     double cpu_clock_scale = 1.0;
-
+/*
     template <class Archive>
     void serialize(Archive& ar, const unsigned int file_version) {
         // event_types set during initialization of other things
@@ -305,8 +310,9 @@ private:
         }
     }
     friend class boost::serialization::access;
+*/
 };
 
 } // namespace Core
 
-BOOST_CLASS_VERSION(Core::Timing, 1)
+//BOOST_CLASS_VERSION(Core::Timing, 1)

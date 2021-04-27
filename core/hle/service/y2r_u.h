@@ -7,7 +7,7 @@
 #include <array>
 #include <memory>
 #include <string>
-#include <boost/serialization/array.hpp>
+//#include <boost/serialization/array.hpp>
 #include "common/common_types.h"
 #include "core/hle/result.h"
 #include "core/hle/service/service.h"
@@ -94,6 +94,7 @@ struct ConversionBuffer {
     u16 gap;
 
 private:
+/*
     template <class Archive>
     void serialize(Archive& ar, const unsigned int) {
         ar& address;
@@ -102,6 +103,7 @@ private:
         ar& gap;
     }
     friend class boost::serialization::access;
+*/
 };
 
 struct ConversionConfiguration {
@@ -125,6 +127,7 @@ struct ConversionConfiguration {
     ResultCode SetStandardCoefficient(StandardCoefficient standard_coefficient);
 
 private:
+/*
     template <class Archive>
     void serialize(Archive& ar, const unsigned int) {
         ar& input_format;
@@ -143,6 +146,7 @@ private:
         ar& dst;
     }
     friend class boost::serialization::access;
+*/
 };
 
 struct DitheringWeightParams {
@@ -164,6 +168,7 @@ struct DitheringWeightParams {
     u16 w3_xOdd_yOdd;
 
 private:
+/*
     template <class Archive>
     void serialize(Archive& ar, const unsigned int) {
         ar& w0_xEven_yEven;
@@ -184,6 +189,7 @@ private:
         ar& w3_xOdd_yOdd;
     }
     friend class boost::serialization::access;
+*/
 };
 
 struct ConversionParameters {
@@ -354,10 +360,11 @@ private:
     bool temporal_dithering_enabled = false;
     bool transfer_end_interrupt_enabled = false;
     bool spacial_dithering_enabled = false;
-
+/*
     template <class Archive>
     void serialize(Archive& ar, const unsigned int);
     friend class boost::serialization::access;
+*/
 };
 
 void InstallInterfaces(Core::System& system);
@@ -365,4 +372,4 @@ void InstallInterfaces(Core::System& system);
 } // namespace Service::Y2R
 
 SERVICE_CONSTRUCT(Service::Y2R::Y2R_U)
-BOOST_CLASS_EXPORT_KEY(Service::Y2R::Y2R_U)
+//BOOST_CLASS_EXPORT_KEY(Service::Y2R::Y2R_U)

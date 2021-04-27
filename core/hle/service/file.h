@@ -5,7 +5,7 @@
 #pragma once
 
 #include <memory>
-#include <boost/serialization/base_object.hpp>
+//#include <boost/serialization/base_object.hpp>
 #include "../../archive_backend.h"
 #include "core/global.h"
 #include "core/hle/service/service.h"
@@ -23,6 +23,7 @@ struct FileSessionSlot : public Kernel::SessionRequestHandler::SessionDataBase {
     bool subfile; ///< Whether this file was opened via OpenSubFile or not.
 
 private:
+/*
     template <class Archive>
     void serialize(Archive& ar, const unsigned int) {
         ar& boost::serialization::base_object<Kernel::SessionRequestHandler::SessionDataBase>(
@@ -33,6 +34,7 @@ private:
         ar& subfile;
     }
     friend class boost::serialization::access;
+*/
 };
 
 // TODO: File is not a real service, but it can still utilize ServiceFramework::RegisterHandlers.
@@ -77,13 +79,16 @@ private:
 
     File(Kernel::KernelSystem& kernel);
     File();
-
+/*
     template <class Archive>
     void serialize(Archive& ar, const unsigned int);
     friend class boost::serialization::access;
+*/
 };
 
 } // namespace Service::FS
 
+/*
 BOOST_CLASS_EXPORT_KEY(Service::FS::FileSessionSlot)
 BOOST_CLASS_EXPORT_KEY(Service::FS::File)
+*/

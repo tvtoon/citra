@@ -9,10 +9,12 @@
 #include <unordered_map>
 #include <vector>
 #include <boost/container/flat_set.hpp>
+/*
 #include <boost/serialization/export.hpp>
 #include <boost/serialization/shared_ptr.hpp>
 #include <boost/serialization/unordered_map.hpp>
 #include <boost/serialization/vector.hpp>
+*/
 #include "common/common_types.h"
 #include "common/thread_queue_list.h"
 #include "../arm_interface.h"
@@ -70,9 +72,11 @@ public:
                         std::shared_ptr<WaitObject> object) = 0;
 
 private:
+/*
     template <class Archive>
     void serialize(Archive& ar, const unsigned int) {}
     friend class boost::serialization::access;
+*/
 };
 
 class ThreadManager {
@@ -158,7 +162,7 @@ private:
 
     friend class Thread;
     friend class KernelSystem;
-
+/*
     friend class boost::serialization::access;
     template <class Archive>
     void serialize(Archive& ar, const unsigned int file_version) {
@@ -167,6 +171,7 @@ private:
         ar& wakeup_callback_table;
         ar& thread_list;
     }
+*/
 };
 
 class Thread final : public WaitObject {
@@ -327,10 +332,11 @@ public:
 
 private:
     ThreadManager& thread_manager;
-
+/*
     friend class boost::serialization::access;
     template <class Archive>
     void serialize(Archive& ar, const unsigned int file_version);
+*/
 };
 
 /**
@@ -346,6 +352,7 @@ std::shared_ptr<Thread> SetupMainThread(KernelSystem& kernel, u32 entry_point, u
 
 } // namespace Kernel
 
+/*
 BOOST_CLASS_EXPORT_KEY(Kernel::Thread)
 
 namespace boost::serialization {
@@ -364,3 +371,4 @@ inline void load_construct_data(Archive& ar, Kernel::Thread* t, const unsigned i
 }
 
 } // namespace boost::serialization
+*/

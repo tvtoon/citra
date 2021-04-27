@@ -8,9 +8,11 @@
 #include <memory>
 #include <utility>
 #include <vector>
+/*
 #include <boost/serialization/map.hpp>
 #include <boost/serialization/shared_ptr.hpp>
 #include <boost/serialization/split_member.hpp>
+*/
 #include "common/common_types.h"
 #include "common/memory_ref.h"
 #include "core/hle/result.h"
@@ -86,6 +88,7 @@ struct VirtualMemoryArea {
     bool CanBeMergedWith(const VirtualMemoryArea& next) const;
 
 private:
+/*
     friend class boost::serialization::access;
     template <class Archive>
     void serialize(Archive& ar, const unsigned int file_version) {
@@ -98,6 +101,7 @@ private:
         ar& paddr;
         ar& mmio_handler;
     }
+*/
 };
 
 /**
@@ -258,7 +262,7 @@ private:
     // When locked, ChangeMemoryState calls will be ignored, other modification calls will hit an
     // assert. VMManager locks itself after deserialization.
     bool is_locked{};
-
+/*
     template <class Archive>
     void serialize(Archive& ar, const unsigned int) {
         ar& vma_map;
@@ -268,5 +272,6 @@ private:
         }
     }
     friend class boost::serialization::access;
+*/
 };
 } // namespace Kernel

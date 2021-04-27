@@ -2,7 +2,7 @@
 // Licensed under GPLv2 or any later version
 // Refer to the license.txt file included.
 
-#include <boost/serialization/weak_ptr.hpp>
+//#include <boost/serialization/weak_ptr.hpp>
 #include "common/archives.h"
 #include "common/logging/log.h"
 #include "core/core.h"
@@ -20,13 +20,13 @@ SERVICE_CONSTRUCT_IMPL(Service::MIC::MIC_U)
 SERIALIZE_EXPORT_IMPL(Service::MIC::MIC_U)
 
 namespace Service::MIC {
-
+/*
 template <class Archive>
 void MIC_U::serialize(Archive& ar, const unsigned int) {
     ar& boost::serialization::base_object<Kernel::SessionRequestHandler>(*this);
     ar&* impl.get();
 }
-
+*/
 /// Microphone audio encodings.
 enum class Encoding : u8 {
     PCM8 = 0,        ///< Unsigned 8-bit PCM.
@@ -105,6 +105,7 @@ struct State {
     }
 
 private:
+/*
     template <class Archive>
     void serialize(Archive& ar, const unsigned int) {
         std::shared_ptr<Kernel::SharedMemory> _memory_ref = memory_ref.lock();
@@ -120,6 +121,7 @@ private:
         sharedmem_buffer = _memory_ref ? _memory_ref->GetPointer() : nullptr;
     }
     friend class boost::serialization::access;
+*/
 };
 
 struct MIC_U::Impl {
@@ -392,6 +394,7 @@ struct MIC_U::Impl {
     Encoding encoding{};
 
 private:
+/*
     template <class Archive>
     void serialize(Archive& ar, const unsigned int file_version) {
         ar& change_mic_impl_requested;
@@ -419,6 +422,7 @@ private:
         }
     }
     friend class boost::serialization::access;
+*/
 };
 
 void MIC_U::MapSharedMem(Kernel::HLERequestContext& ctx) {

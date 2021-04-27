@@ -6,9 +6,11 @@
 
 #include <memory>
 #include <vector>
+/*
 #include <boost/serialization/export.hpp>
 #include <boost/serialization/shared_ptr.hpp>
 #include <boost/serialization/vector.hpp>
+*/
 #include "common/assert.h"
 #include "common/common_types.h"
 
@@ -21,9 +23,11 @@ public:
     virtual std::size_t GetSize() const = 0;
 
 private:
+/*
     template <class Archive>
     void serialize(Archive& ar, const unsigned int) {}
     friend class boost::serialization::access;
+*/
 };
 
 /// Backing memory implemented by a local buffer
@@ -54,16 +58,17 @@ public:
 
 private:
     std::vector<u8> data;
-
+/*
     template <class Archive>
     void serialize(Archive& ar, const unsigned int) {
         ar& boost::serialization::base_object<BackingMem>(*this);
         ar& data;
     }
     friend class boost::serialization::access;
+*/
 };
 
-BOOST_CLASS_EXPORT_KEY(BufferMem);
+//BOOST_CLASS_EXPORT_KEY(BufferMem);
 
 /// A managed reference to host-side memory. Fast enough to be used everywhere instead of u8*
 /// Supports serialization.
@@ -125,7 +130,7 @@ private:
             csize = 0;
         }
     }
-
+/*
     template <class Archive>
     void serialize(Archive& ar, const unsigned int) {
         ar& backing_mem;
@@ -133,4 +138,5 @@ private:
         Init();
     }
     friend class boost::serialization::access;
+*/
 };

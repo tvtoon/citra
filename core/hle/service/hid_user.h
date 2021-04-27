@@ -20,6 +20,7 @@ private:
 };
 
 } // namespace Service::HID
-
+/*
 BOOST_CLASS_EXPORT_KEY(Service::HID::User)
 BOOST_SERIALIZATION_CONSTRUCT(Service::HID::User)
+*/

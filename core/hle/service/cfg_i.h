@@ -17,6 +17,7 @@ private:
 };
 
 } // namespace Service::CFG
-
+/*
 BOOST_CLASS_EXPORT_KEY(Service::CFG::CFG_I)
 BOOST_SERIALIZATION_CONSTRUCT(Service::CFG::CFG_I)
+*/

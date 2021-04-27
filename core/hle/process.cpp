@@ -4,9 +4,11 @@
 
 #include <algorithm>
 #include <memory>
+/*
 #include <boost/serialization/array.hpp>
 #include <boost/serialization/bitset.hpp>
 #include <boost/serialization/shared_ptr.hpp>
+*/
 #include "common/archives.h"
 #include "common/assert.h"
 #include "common/common_funcs.h"
@@ -24,7 +26,7 @@ SERIALIZE_EXPORT_IMPL(Kernel::Process)
 SERIALIZE_EXPORT_IMPL(Kernel::CodeSet)
 
 namespace Kernel {
-
+/*
 template <class Archive>
 void Process::serialize(Archive& ar, const unsigned int file_version) {
     ar& boost::serialization::base_object<Object>(*this);
@@ -45,7 +47,7 @@ void Process::serialize(Archive& ar, const unsigned int file_version) {
     ar& memory_region;
     ar& tls_slots;
 }
-
+*/
 SERIALIZE_IMPL(Process)
 
 std::shared_ptr<CodeSet> KernelSystem::CreateCodeSet(std::string name, u64 program_id) {

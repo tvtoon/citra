@@ -5,8 +5,10 @@
 #pragma once
 
 #include <memory>
+/*
 #include <boost/serialization/array.hpp>
 #include <boost/serialization/shared_ptr.hpp>
+*/
 #include "../mutex.h"
 #include "../shared_memory.h"
 #include "core/hle/service/service.h"
@@ -37,12 +39,14 @@ struct AdpcmState {
     u8 step_index = 0;
 
 private:
+/*
     template <class Archive>
     void serialize(Archive& ar, const unsigned int) {
         ar& predictor;
         ar& step_index;
     }
     friend class boost::serialization::access;
+*/
 };
 
 struct Channel {
@@ -64,6 +68,7 @@ struct Channel {
     u8 psg_duty = 0;
 
 private:
+/*
     template <class Archive>
     void serialize(Archive& ar, const unsigned int) {
         ar& block1_address;
@@ -84,6 +89,7 @@ private:
         ar& psg_duty;
     }
     friend class boost::serialization::access;
+*/
 };
 
 class CSND_SND final : public ServiceFramework<CSND_SND> {
@@ -254,7 +260,7 @@ private:
     u32 type1_command_offset = 0;
 
     u32 acquired_channel_mask = 0;
-
+/*
     template <class Archive>
     void serialize(Archive& ar, const unsigned int) {
         ar& boost::serialization::base_object<Kernel::SessionRequestHandler>(*this);
@@ -269,6 +275,7 @@ private:
         ar& acquired_channel_mask;
     }
     friend class boost::serialization::access;
+*/
 };
 
 /// Initializes the CSND_SND Service
@@ -276,5 +283,5 @@ void InstallInterfaces(Core::System& system);
 
 } // namespace Service::CSND
 
-BOOST_CLASS_EXPORT_KEY(Service::CSND::CSND_SND)
+//BOOST_CLASS_EXPORT_KEY(Service::CSND::CSND_SND)
 SERVICE_CONSTRUCT(Service::CSND::CSND_SND)

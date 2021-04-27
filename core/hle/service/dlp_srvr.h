@@ -21,4 +21,4 @@ private:
 
 } // namespace Service::DLP
 
-BOOST_CLASS_EXPORT_KEY(Service::DLP::DLP_SRVR)
+//BOOST_CLASS_EXPORT_KEY(Service::DLP::DLP_SRVR)

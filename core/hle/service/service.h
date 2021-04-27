@@ -10,8 +10,10 @@
 #include <memory>
 #include <string>
 #include <boost/container/flat_map.hpp>
+/*
 #include <boost/serialization/base_object.hpp>
 #include <boost/serialization/shared_ptr.hpp>
+*/
 #include "common/common_types.h"
 #include "common/construct.h"
 #include "../hle_ipc.h"
@@ -198,6 +200,7 @@ extern const std::array<ServiceModuleInfo, 40> service_module_map;
 
 } // namespace Service
 
+/*
 #define SERVICE_SERIALIZATION(T, MFIELD, TMODULE)                                                  \
     template <class Archive>                                                                       \
     void save_construct(Archive& ar, const unsigned int file_version) const {                      \
@@ -239,3 +242,9 @@ extern const std::array<ServiceModuleInfo, 40> service_module_map;
     }                                                                                              \
     template void load_construct_data<iarchive>(iarchive & ar, T* t, const unsigned int);          \
     }
+*/
+
+#define SERVICE_SERIALIZATION(T, MFIELD, TMODULE)
+#define SERVICE_SERIALIZATION_SIMPLE
+#define SERVICE_CONSTRUCT(T)
+#define SERVICE_CONSTRUCT_IMPL(T)

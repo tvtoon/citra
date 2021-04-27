@@ -5,9 +5,11 @@
 #include <algorithm>
 #include <cmath>
 #include <numeric>
+/*
 #include <boost/serialization/array.hpp>
 #include <boost/serialization/shared_ptr.hpp>
 #include <boost/serialization/unique_ptr.hpp>
+*/
 #include "common/archives.h"
 #include "common/logging/log.h"
 #include "core/3ds.h"
@@ -29,7 +31,7 @@ SERVICE_CONSTRUCT_IMPL(Service::HID::Module)
 SERIALIZE_EXPORT_IMPL(Service::HID::Module)
 
 namespace Service::HID {
-
+/*
 template <class Archive>
 void Module::serialize(Archive& ar, const unsigned int file_version) {
     ar& shared_mem;
@@ -53,6 +55,7 @@ void Module::serialize(Archive& ar, const unsigned int file_version) {
     // Update events are set in the constructor
     // Devices are set from the implementation (and are stateless afaik)
 }
+*/
 SERIALIZE_IMPL(Module)
 
 // Updating period for each HID device. These empirical values are measured from a 11.2 3DS.

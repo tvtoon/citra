@@ -6,10 +6,12 @@
 
 #include <array>
 #include <memory>
+/*
 #include <boost/serialization/array.hpp>
 #include <boost/serialization/base_object.hpp>
 #include <boost/serialization/shared_ptr.hpp>
 #include <boost/serialization/string.hpp>
+*/
 #include "common/common_types.h"
 #include "object.h"
 
@@ -116,6 +118,7 @@ public:
     s32 current_cpu_time = 0;
 
 private:
+/*
     friend class boost::serialization::access;
     template <class Archive>
     void serialize(Archive& ar, const unsigned int file_version) {
@@ -143,6 +146,7 @@ private:
         ar& current_address_arbiters;
         ar& current_cpu_time;
     }
+*/
 };
 
 class ResourceLimitList {
@@ -159,15 +163,17 @@ public:
 
 private:
     std::array<std::shared_ptr<ResourceLimit>, 4> resource_limits;
-
+/*
     friend class boost::serialization::access;
     template <class Archive>
     void serialize(Archive& ar, const unsigned int file_version) {
         ar& resource_limits;
     }
+*/
 };
 
 } // namespace Kernel
-
+/*
 BOOST_CLASS_EXPORT_KEY(Kernel::ResourceLimit)
 CONSTRUCT_KERNEL_OBJECT(Kernel::ResourceLimit)
+*/

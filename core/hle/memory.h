@@ -6,7 +6,7 @@
 
 #include <optional>
 #include <boost/icl/interval_set.hpp>
-#include <boost/serialization/set.hpp>
+//#include <boost/serialization/set.hpp>
 #include "common/common_types.h"
 #include "common/serialization/boost_interval_set.hpp"
 
@@ -73,6 +73,7 @@ struct MemoryRegionInfo {
     void Unlock();
 
 private:
+/*
     friend class boost::serialization::access;
     template <class Archive>
     void serialize(Archive& ar, const unsigned int file_version) {
@@ -84,6 +85,7 @@ private:
             is_locked = true;
         }
     }
+*/
 };
 
 } // namespace Kernel

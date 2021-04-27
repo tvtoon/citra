@@ -3,9 +3,11 @@
 // Refer to the license.txt file included.
 
 #include <tuple>
+/*
 #include <boost/serialization/shared_ptr.hpp>
 #include <boost/serialization/string.hpp>
 #include <boost/serialization/vector.hpp>
+*/
 #include "common/archives.h"
 #include "client_port.h"
 #include "client_session.h"
@@ -17,7 +19,7 @@
 SERIALIZE_EXPORT_IMPL(Kernel::ServerSession)
 
 namespace Kernel {
-
+/*
 template <class Archive>
 void ServerSession::serialize(Archive& ar, const unsigned int file_version) {
     ar& boost::serialization::base_object<WaitObject>(*this);
@@ -28,6 +30,7 @@ void ServerSession::serialize(Archive& ar, const unsigned int file_version) {
     ar& currently_handling;
     ar& mapped_buffer_context;
 }
+*/
 SERIALIZE_IMPL(ServerSession)
 
 ServerSession::ServerSession(KernelSystem& kernel) : WaitObject(kernel), kernel(kernel) {}

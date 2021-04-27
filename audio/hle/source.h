@@ -6,10 +6,12 @@
 
 #include <array>
 #include <vector>
+/*
 #include <boost/serialization/array.hpp>
 #include <boost/serialization/deque.hpp>
 #include <boost/serialization/priority_queue.hpp>
 #include <boost/serialization/vector.hpp>
+*/
 #include <queue>
 #include "../audio_types.h"
 #include "../codec.h"
@@ -91,6 +93,7 @@ private:
         bool has_played;       // = false;
 
     private:
+/*
         template <class Archive>
         void serialize(Archive& ar, const unsigned int) {
             ar& physical_address;
@@ -107,6 +110,7 @@ private:
             ar& has_played;
         }
         friend class boost::serialization::access;
+*/
     };
 
     struct BufferOrder {
@@ -161,6 +165,7 @@ private:
         SourceFilters filters = {};
 
     private:
+/*
         template <class Archive>
         void serialize(Archive& ar, const unsigned int) {
             ar& enabled;
@@ -180,7 +185,7 @@ private:
             ar& interpolation_mode;
         }
         friend class boost::serialization::access;
-
+*/
     } state;
 
     // Internal functions
@@ -194,12 +199,13 @@ private:
     bool DequeueBuffer();
     /// INTERNAL: Generates a SourceStatus::Status based on our internal state.
     SourceStatus::Status GetCurrentStatus();
-
+/*
     template <class Archive>
     void serialize(Archive& ar, const unsigned int) {
         ar& state;
     }
     friend class boost::serialization::access;
+*/
 };
 
 } // namespace AudioCore::HLE

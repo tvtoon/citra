@@ -4,9 +4,11 @@
 
 #include <memory>
 #include <boost/crc.hpp>
+/*
 #include <boost/serialization/base_object.hpp>
 #include <boost/serialization/shared_ptr.hpp>
 #include <boost/serialization/unique_ptr.hpp>
+*/
 #include "common/string_util.h"
 #include "common/swap.h"
 #include "core/core.h"
@@ -20,7 +22,7 @@ SERIALIZE_EXPORT_IMPL(Service::IR::IR_USER)
 SERVICE_CONSTRUCT_IMPL(Service::IR::IR_USER)
 
 namespace Service::IR {
-
+/*
 template <class Archive>
 void IR_USER::serialize(Archive& ar, const unsigned int) {
     ar& boost::serialization::base_object<Kernel::SessionRequestHandler>(*this);
@@ -32,7 +34,7 @@ void IR_USER::serialize(Archive& ar, const unsigned int) {
     ar& receive_buffer;
     ar&* extra_hid.get();
 }
-
+*/
 // This is a header that will present in the ir:USER shared memory if it is initialized with
 // InitializeIrNopShared service function. Otherwise the shared memory doesn't have this header if
 // it is initialized with InitializeIrNop service function.
@@ -159,6 +161,7 @@ private:
         u32_le unknown;
 
     private:
+/*
         template <class Archive>
         void serialize(Archive& ar, const unsigned int) {
             ar& begin_index;
@@ -167,6 +170,7 @@ private:
             ar& unknown;
         }
         friend class boost::serialization::access;
+*/
     };
     static_assert(sizeof(BufferInfo) == 16, "BufferInfo has wrong size!");
 
@@ -210,7 +214,7 @@ private:
 
 private:
     BufferManager() = default;
-
+/*
     template <class Archive>
     void serialize(Archive& ar, const unsigned int) {
         ar& info;
@@ -221,6 +225,7 @@ private:
         ar& max_data_size;
     }
     friend class boost::serialization::access;
+*/
 };
 
 /// Wraps the payload into packet and puts it to the receive buffer

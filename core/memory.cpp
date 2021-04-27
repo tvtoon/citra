@@ -4,8 +4,10 @@
 
 #include <array>
 #include <cstring>
+/*
 #include <boost/serialization/array.hpp>
 #include <boost/serialization/binary_object.hpp>
+*/
 #include "../audio/dsp_interface.h"
 #include "common/archives.h"
 #include "common/assert.h"
@@ -70,6 +72,7 @@ private:
     std::array<bool, NEW_LINEAR_HEAP_SIZE / PAGE_SIZE> new_linear_heap{};
 
     static_assert(sizeof(bool) == 1);
+/*
     friend class boost::serialization::access;
     template <typename Archive>
     void serialize(Archive& ar, const unsigned int file_version) {
@@ -77,6 +80,7 @@ private:
         ar& linear_heap;
         ar& new_linear_heap;
     }
+*/
 };
 
 class MemorySystem::Impl {
@@ -146,6 +150,7 @@ public:
     }
 
 private:
+/*
     friend class boost::serialization::access;
     template <class Archive>
     void serialize(Archive& ar, const unsigned int file_version) {
@@ -165,6 +170,7 @@ private:
         ar& n3ds_extra_ram_mem;
         ar& dsp_mem;
     }
+*/
 };
 
 // We use this rather than BufferMem because we don't want new objects to be allocated when
@@ -186,12 +192,13 @@ public:
 
 private:
     MemorySystem::Impl& impl;
-
+/*
     template <class Archive>
     void serialize(Archive& ar, const unsigned int) {
         ar& boost::serialization::base_object<BackingMem>(*this);
     }
     friend class boost::serialization::access;
+*/
 };
 
 MemorySystem::Impl::Impl()
@@ -202,12 +209,12 @@ MemorySystem::Impl::Impl()
 
 MemorySystem::MemorySystem() : impl(std::make_unique<Impl>()) {}
 MemorySystem::~MemorySystem() = default;
-
+/*
 template <class Archive>
 void MemorySystem::serialize(Archive& ar, const unsigned int file_version) {
     ar&* impl.get();
 }
-
+*/
 SERIALIZE_IMPL(MemorySystem)
 
 void MemorySystem::SetCurrentPageTable(std::shared_ptr<PageTable> page_table) {

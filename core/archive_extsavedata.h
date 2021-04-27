@@ -6,8 +6,10 @@
 
 #include <memory>
 #include <string>
+/*
 #include <boost/serialization/export.hpp>
 #include <boost/serialization/string.hpp>
+*/
 #include "common/common_types.h"
 #include "archive_backend.h"
 #include "core/hle/result.h"
@@ -58,6 +60,7 @@ private:
     Path GetCorrectedPath(const Path& path);
 
     ArchiveFactory_ExtSaveData() = default;
+/*
     template <class Archive>
     void serialize(Archive& ar, const unsigned int) {
         ar& boost::serialization::base_object<ArchiveFactory>(*this);
@@ -65,6 +68,7 @@ private:
         ar& mount_point;
     }
     friend class boost::serialization::access;
+*/
 };
 
 /**
@@ -107,6 +111,7 @@ Path ConstructExtDataBinaryPath(u32 media_type, u32 high, u32 low);
 class ExtSaveDataDelayGenerator;
 
 } // namespace FileSys
-
+/*
 BOOST_CLASS_EXPORT_KEY(FileSys::ArchiveFactory_ExtSaveData)
 BOOST_CLASS_EXPORT_KEY(FileSys::ExtSaveDataDelayGenerator)
+*/

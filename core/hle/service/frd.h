@@ -20,6 +20,7 @@ struct FriendKey {
     u64 friend_code;
 
 private:
+/*
     template <class Archive>
     void serialize(Archive& ar, const unsigned int) {
         ar& friend_id;
@@ -27,17 +28,20 @@ private:
         ar& friend_code;
     }
     friend class boost::serialization::access;
+*/
 };
 
 struct MyPresence {
     u8 unknown[0x12C];
 
 private:
+/*
     template <class Archive>
     void serialize(Archive& ar, const unsigned int) {
         ar& unknown;
     }
     friend class boost::serialization::access;
+*/
 };
 
 struct Profile {
@@ -153,13 +157,14 @@ public:
 private:
     FriendKey my_friend_key = {0, 0, 0ull};
     MyPresence my_presence = {};
-
+/*
     template <class Archive>
     void serialize(Archive& ar, const unsigned int) {
         ar& my_friend_key;
         ar& my_presence;
     }
     friend class boost::serialization::access;
+*/
 };
 
 void InstallInterfaces(Core::System& system);

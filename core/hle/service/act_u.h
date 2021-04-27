@@ -17,6 +17,7 @@ private:
 };
 
 } // namespace Service::ACT
-
+/*
 BOOST_CLASS_EXPORT_KEY(Service::ACT::ACT_U)
 BOOST_SERIALIZATION_CONSTRUCT(Service::ACT::ACT_U)
+*/

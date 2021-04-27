@@ -17,6 +17,7 @@ private:
 };
 
 } // namespace Service::AM
-
+/*
 BOOST_CLASS_EXPORT_KEY(Service::AM::AM_SYS)
 BOOST_SERIALIZATION_CONSTRUCT(Service::AM::AM_SYS)
+*/

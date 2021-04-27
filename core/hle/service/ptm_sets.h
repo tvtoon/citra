@@ -18,6 +18,7 @@ private:
 };
 
 } // namespace Service::PTM
-
+/*
 BOOST_CLASS_EXPORT_KEY(Service::PTM::PTM_Sets)
 BOOST_SERIALIZATION_CONSTRUCT(Service::PTM::PTM_Sets)
+*/

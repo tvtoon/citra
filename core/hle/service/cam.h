@@ -75,6 +75,7 @@ struct Resolution {
     u16 crop_y1;
 
 private:
+/*
     template <class Archive>
     void serialize(Archive& ar, const unsigned int) {
         ar& width;
@@ -85,6 +86,7 @@ private:
         ar& crop_y1;
     }
     friend class boost::serialization::access;
+*/
 };
 
 struct PackageParameterWithoutContext {
@@ -662,6 +664,7 @@ private:
         Resolution resolution = {0, 0, 0, 0, 0, 0};
 
     private:
+/*
         template <class Archive>
         void serialize(Archive& ar, const unsigned int) {
             ar& flip;
@@ -670,6 +673,7 @@ private:
             ar& resolution;
         }
         friend class boost::serialization::access;
+*/
     };
 
     struct CameraConfig {
@@ -679,6 +683,7 @@ private:
         FrameRate frame_rate{FrameRate::Rate_15};
 
     private:
+/*
         template <class Archive>
         void serialize(Archive& ar, const unsigned int file_version) {
             // For compatibility: put a nullptr here
@@ -691,6 +696,7 @@ private:
             ar& frame_rate;
         }
         friend class boost::serialization::access;
+*/
     };
 
     struct PortConfig {
@@ -729,6 +735,7 @@ private:
         void Clear();
 
     private:
+/*
         template <class Archive>
         void serialize(Archive& ar, const unsigned int) {
             ar& camera_id;
@@ -752,6 +759,7 @@ private:
             ar& dest_size;
         }
         friend class boost::serialization::access;
+*/
     };
 
     void LoadCameraImplementation(CameraConfig& camera, int camera_id);
@@ -763,10 +771,11 @@ private:
     Core::TimingEventType* completion_event_callback;
     Core::TimingEventType* vsync_interrupt_event_callback;
     std::atomic<bool> is_camera_reload_pending{false};
-
+/*
     template <class Archive>
     void serialize(Archive& ar, const unsigned int file_version);
     friend class boost::serialization::access;
+*/
 };
 
 std::shared_ptr<Module> GetModule(Core::System& system);
@@ -776,5 +785,7 @@ void InstallInterfaces(Core::System& system);
 } // namespace Service::CAM
 
 SERVICE_CONSTRUCT(Service::CAM::Module)
+/*
 BOOST_CLASS_VERSION(Service::CAM::Module, 1)
 BOOST_CLASS_VERSION(Service::CAM::Module::CameraConfig, 1)
+*/

@@ -3,7 +3,7 @@
 // Refer to the license.txt file included.
 
 #pragma once
-
+/*
 #include <boost/serialization/serialization.hpp>
 
 /// Allows classes to define `save_construct` and `load_construct` methods for serialization
@@ -32,3 +32,5 @@ public:
         construct_access::load_construct(ar, t, file_version);                                     \
     }                                                                                              \
     }
+*/
+#define BOOST_SERIALIZATION_CONSTRUCT(T)

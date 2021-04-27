@@ -17,6 +17,7 @@ private:
 };
 
 } // namespace Service::CAM
-
+/*
 BOOST_CLASS_EXPORT_KEY(Service::CAM::CAM_C)
 BOOST_SERIALIZATION_CONSTRUCT(Service::CAM::CAM_C)
+*/

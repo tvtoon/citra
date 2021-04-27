@@ -16,7 +16,7 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
 SERIALIZE_EXPORT_IMPL(SharedPage::Handler)
-
+/*
 namespace boost::serialization {
 
 template <class Archive>
@@ -27,7 +27,7 @@ template void load_construct_data<iarchive>(iarchive& ar, SharedPage::Handler* t
                                             const unsigned int);
 
 } // namespace boost::serialization
-
+*/
 namespace SharedPage {
 
 static std::chrono::seconds GetInitTime() {

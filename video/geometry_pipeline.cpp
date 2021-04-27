@@ -1,10 +1,11 @@
 // Copyright 2017 Citra Emulator Project
 // Licensed under GPLv2 or any later version
 // Refer to the license.txt file included.
-
+/*
 #include <boost/serialization/base_object.hpp>
 #include <boost/serialization/export.hpp>
 #include <boost/serialization/unique_ptr.hpp>
+*/
 #include "common/archives.h"
 #include "geometry_pipeline.h"
 #include "pica_state.h"
@@ -36,9 +37,11 @@ public:
     virtual bool SubmitVertex(const Shader::AttributeBuffer& input) = 0;
 
 private:
+/*
     template <class Archive>
     void serialize(Archive& ar, const unsigned int file_version) {}
     friend class boost::serialization::access;
+*/
 };
 
 // In the Point mode, vertex attributes are sent to the input registers in the geometry shader unit.
@@ -90,7 +93,7 @@ private:
     unsigned int vs_output_num;
 
     GeometryPipeline_Point() : regs(g_state.regs), unit(g_state.gs_unit) {}
-
+/*
     template <typename Class, class Archive>
     static void serialize_common(Class* self, Archive& ar, const unsigned int version) {
         ar& boost::serialization::base_object<GeometryPipelineBackend>(*self);
@@ -120,6 +123,7 @@ private:
     BOOST_SERIALIZATION_SPLIT_MEMBER()
 
     friend class boost::serialization::access;
+*/
 };
 
 // In VariablePrimitive mode, vertex attributes are buffered into the uniform registers in the
@@ -187,7 +191,7 @@ private:
     unsigned int vs_output_num;
 
     GeometryPipeline_VariablePrimitive() : regs(g_state.regs), setup(g_state.gs) {}
-
+/*
     template <typename Class, class Archive>
     static void serialize_common(Class* self, Archive& ar, const unsigned int version) {
         ar& boost::serialization::base_object<GeometryPipelineBackend>(*self);
@@ -215,6 +219,7 @@ private:
     BOOST_SERIALIZATION_SPLIT_MEMBER()
 
     friend class boost::serialization::access;
+*/
 };
 
 // In FixedPrimitive mode, vertex attributes are buffered into the uniform registers in the geometry
@@ -263,7 +268,7 @@ private:
     unsigned int vs_output_num;
 
     GeometryPipeline_FixedPrimitive() : regs(g_state.regs), setup(g_state.gs) {}
-
+/*
     template <typename Class, class Archive>
     static void serialize_common(Class* self, Archive& ar, const unsigned int version) {
         ar& boost::serialization::base_object<GeometryPipelineBackend>(*self);
@@ -296,6 +301,7 @@ private:
     BOOST_SERIALIZATION_SPLIT_MEMBER()
 
     friend class boost::serialization::access;
+*/
 };
 
 GeometryPipeline::GeometryPipeline(State& state) : state(state) {}
@@ -376,13 +382,13 @@ void GeometryPipeline::SubmitVertex(const Shader::AttributeBuffer& input) {
         }
     }
 }
-
+/*
 template <class Archive>
 void GeometryPipeline::serialize(Archive& ar, const unsigned int version) {
     // vertex_handler and shader_engine are always set to the same value
     ar& backend;
 }
-
+*/
 } // namespace Pica
 
 SERIALIZE_EXPORT_IMPL(Pica::GeometryPipeline_Point)

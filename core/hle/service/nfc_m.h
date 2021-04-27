@@ -17,6 +17,7 @@ private:
 };
 
 } // namespace Service::NFC
-
+/*
 BOOST_CLASS_EXPORT_KEY(Service::NFC::NFC_M)
 BOOST_SERIALIZATION_CONSTRUCT(Service::NFC::NFC_M)
+*/

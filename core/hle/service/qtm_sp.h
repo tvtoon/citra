@@ -19,4 +19,4 @@ private:
 
 } // namespace Service::QTM
 
-BOOST_CLASS_EXPORT_KEY(Service::QTM::QTM_SP)
+//BOOST_CLASS_EXPORT_KEY(Service::QTM::QTM_SP)

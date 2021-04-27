@@ -18,4 +18,4 @@ private:
 
 } // namespace Service::CFG
 
-BOOST_CLASS_EXPORT_KEY(Service::CFG::CFG_NOR)
+//BOOST_CLASS_EXPORT_KEY(Service::CFG::CFG_NOR)

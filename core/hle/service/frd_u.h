@@ -17,6 +17,7 @@ private:
 };
 
 } // namespace Service::FRD
-
+/*
 BOOST_CLASS_EXPORT_KEY(Service::FRD::FRD_U)
 BOOST_SERIALIZATION_CONSTRUCT(Service::FRD::FRD_U)
+*/

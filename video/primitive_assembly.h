@@ -6,8 +6,10 @@
 
 #include <array>
 #include <functional>
+/*
 #include <boost/serialization/access.hpp>
 #include <boost/serialization/array.hpp>
+*/
 #include "regs_pipeline.h"
 
 namespace Pica {
@@ -65,7 +67,7 @@ private:
     std::array<VertexType, 2> buffer;
     bool strip_ready = false;
     bool winding = false;
-
+/*
     template <class Archive>
     void serialize(Archive& ar, const unsigned int version) {
         ar& topology;
@@ -75,6 +77,7 @@ private:
         ar& winding;
     }
     friend class boost::serialization::access;
+*/
 };
 
 } // namespace Pica

@@ -49,7 +49,7 @@ private:
     ThreadCallback() = default;
     std::shared_ptr<HLERequestContext::WakeupCallback> callback{};
     std::shared_ptr<HLERequestContext> context{};
-
+/*
     template <class Archive>
     void serialize(Archive& ar, const unsigned int) {
         ar& boost::serialization::base_object<Kernel::WakeupCallback>(*this);
@@ -57,6 +57,7 @@ private:
         ar& context;
     }
     friend class boost::serialization::access;
+*/
 };
 
 SessionRequestHandler::SessionInfo::SessionInfo(std::shared_ptr<ServerSession> session,

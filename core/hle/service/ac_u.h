@@ -18,6 +18,7 @@ private:
 };
 
 } // namespace Service::AC
-
+/*
 BOOST_CLASS_EXPORT_KEY(Service::AC::AC_U)
 BOOST_SERIALIZATION_CONSTRUCT(Service::AC::AC_U)
+*/

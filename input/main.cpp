@@ -18,7 +18,7 @@ namespace InputCommon {
 
 static std::shared_ptr<Keyboard> keyboard;
 static std::shared_ptr<MotionEmu> motion_emu;
-static std::unique_ptr<CemuhookUDP::State> udp;
+//static std::unique_ptr<CemuhookUDP::State> udp;
 static std::unique_ptr<SDL::State> sdl;
 
 void Init() {
@@ -33,7 +33,7 @@ void Init() {
 
     sdl = SDL::Init();
 
-    udp = CemuhookUDP::Init();
+//    udp = CemuhookUDP::Init();
 }
 
 void Shutdown() {
@@ -44,7 +44,7 @@ void Shutdown() {
     motion_emu.reset();
     Input::UnregisterFactory<Input::TouchDevice>("touch_from_button");
     sdl.reset();
-    udp.reset();
+//    udp.reset();
 }
 
 Keyboard* GetKeyboard() {
@@ -90,8 +90,7 @@ Common::ParamPackage GetSDLControllerAnalogBindByGUID(const std::string& guid, i
 }
 
 void ReloadInputDevices() {
-    if (udp)
-        udp->ReloadUDPClient();
+//    if (udp) udp->ReloadUDPClient();
 }
 
 namespace Polling {

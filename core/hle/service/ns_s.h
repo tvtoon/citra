@@ -20,6 +20,7 @@ private:
 };
 
 } // namespace Service::NS
-
+/*
 BOOST_CLASS_EXPORT_KEY(Service::NS::NS_S)
 BOOST_SERIALIZATION_CONSTRUCT(Service::NS::NS_S)
+*/

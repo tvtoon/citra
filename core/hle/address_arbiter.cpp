@@ -90,11 +90,13 @@ public:
     }
 
 private:
+/*
     template <class Archive>
     void serialize(Archive& ar, const unsigned int) {
         ar& boost::serialization::base_object<WakeupCallback>(*this);
     }
     friend class boost::serialization::access;
+*/
 };
 
 void AddressArbiter::WakeUp(ThreadWakeupReason reason, std::shared_ptr<Thread> thread,
@@ -171,7 +173,7 @@ ResultCode AddressArbiter::ArbitrateAddress(std::shared_ptr<Thread> thread, Arbi
 }
 
 } // namespace Kernel
-
+/*
 namespace boost::serialization {
 
 template <class Archive>
@@ -188,6 +190,6 @@ void load_construct_data(Archive& ar, Kernel::AddressArbiter::Callback* t, const
 }
 
 } // namespace boost::serialization
-
+*/
 SERIALIZE_EXPORT_IMPL(Kernel::AddressArbiter)
 SERIALIZE_EXPORT_IMPL(Kernel::AddressArbiter::Callback)

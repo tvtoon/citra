@@ -1,10 +1,11 @@
 // Copyright 2014 Citra Emulator Project
 // Licensed under GPLv2 or any later version
 // Refer to the license.txt file included.
-
+/*
 #include <boost/serialization/shared_ptr.hpp>
 #include <boost/serialization/unordered_map.hpp>
 #include <boost/serialization/vector.hpp>
+*/
 #include "common/archives.h"
 #include "common/serialization/atomic.h"
 #include "client_port.h"
@@ -155,7 +156,7 @@ u32 KernelSystem::NewThreadId() {
 void KernelSystem::ResetThreadIDs() {
     next_thread_id = 0;
 }
-
+/*
 template <class Archive>
 void KernelSystem::serialize(Archive& ar, const unsigned int file_version) {
     ar& memory_regions;
@@ -187,7 +188,7 @@ void KernelSystem::serialize(Archive& ar, const unsigned int file_version) {
         }
     }
 }
-
+*/
 SERIALIZE_IMPL(KernelSystem)
 
 } // namespace Kernel

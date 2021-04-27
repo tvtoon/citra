@@ -8,10 +8,12 @@
 #include <string>
 #include <unordered_map>
 #include <vector>
+/*
 #include <boost/serialization/export.hpp>
 #include <boost/serialization/shared_ptr.hpp>
 #include <boost/serialization/unordered_map.hpp>
 #include <boost/serialization/vector.hpp>
+*/
 #include "common/common_types.h"
 #include "archive_backend.h"
 #include "core/hle/result.h"
@@ -30,6 +32,7 @@ struct NCCHData {
     std::shared_ptr<RomFSReader> update_romfs_file;
 
 private:
+/*
     template <class Archive>
     void serialize(Archive& ar, const unsigned int) {
         ar& icon;
@@ -39,6 +42,7 @@ private:
         ar& update_romfs_file;
     }
     friend class boost::serialization::access;
+*/
 };
 
 /// File system interface to the SelfNCCH archive
@@ -60,20 +64,22 @@ public:
 private:
     /// Mapping of ProgramId -> NCCHData
     std::unordered_map<u64, NCCHData> ncch_data;
-
+/*
     template <class Archive>
     void serialize(Archive& ar, const unsigned int) {
         ar& boost::serialization::base_object<ArchiveFactory>(*this);
         ar& ncch_data;
     }
     friend class boost::serialization::access;
+*/
 };
 
 class ExeFSSectionFile;
 class SelfNCCHArchive;
 
 } // namespace FileSys
-
+/*
 BOOST_CLASS_EXPORT_KEY(FileSys::ArchiveFactory_SelfNCCH)
 BOOST_CLASS_EXPORT_KEY(FileSys::ExeFSSectionFile)
 BOOST_CLASS_EXPORT_KEY(FileSys::SelfNCCHArchive)
+*/

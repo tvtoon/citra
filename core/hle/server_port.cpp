@@ -3,10 +3,12 @@
 // Refer to the license.txt file included.
 
 #include <tuple>
+/*
 #include <boost/serialization/base_object.hpp>
 #include <boost/serialization/shared_ptr.hpp>
 #include <boost/serialization/string.hpp>
 #include <boost/serialization/vector.hpp>
+*/
 #include "common/archives.h"
 #include "common/assert.h"
 #include "client_port.h"
@@ -55,7 +57,7 @@ KernelSystem::PortPair KernelSystem::CreatePortPair(u32 max_sessions, std::strin
 
     return std::make_pair(std::move(server_port), std::move(client_port));
 }
-
+/*
 template <class Archive>
 void ServerPort::serialize(Archive& ar, const unsigned int file_version) {
     ar& boost::serialization::base_object<WaitObject>(*this);
@@ -63,6 +65,7 @@ void ServerPort::serialize(Archive& ar, const unsigned int file_version) {
     ar& pending_sessions;
     ar& hle_handler;
 }
+*/
 SERIALIZE_IMPL(ServerPort)
 
 } // namespace Kernel

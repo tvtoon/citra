@@ -5,8 +5,10 @@
 #include <algorithm>
 #include <array>
 #include <tuple>
+/*
 #include <boost/serialization/array.hpp>
 #include <boost/serialization/unique_ptr.hpp>
+*/
 #include <cryptopp/osrng.h>
 #include <cryptopp/sha.h>
 #include "common/archives.h"
@@ -31,13 +33,14 @@
 SERIALIZE_EXPORT_IMPL(Service::CFG::Module)
 
 namespace Service::CFG {
-
+/*
 template <class Archive>
 void Module::serialize(Archive& ar, const unsigned int) {
     ar& cfg_config_file_buffer;
     ar& cfg_system_save_data_archive;
     ar& preferred_region_code;
 }
+*/
 SERIALIZE_IMPL(Module)
 
 /// The maximum number of block entries that can exist in the config file

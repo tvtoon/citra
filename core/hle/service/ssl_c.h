@@ -31,4 +31,4 @@ void InstallInterfaces(Core::System& system);
 
 } // namespace Service::SSL
 
-BOOST_CLASS_EXPORT_KEY(Service::SSL::SSL_C)
+//BOOST_CLASS_EXPORT_KEY(Service::SSL::SSL_C)

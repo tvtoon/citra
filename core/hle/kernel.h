@@ -298,10 +298,11 @@ private:
     std::unique_ptr<IPCDebugger::Recorder> ipc_recorder;
 
     u32 next_thread_id;
-
+/*
     friend class boost::serialization::access;
     template <class Archive>
     void serialize(Archive& ar, const unsigned int file_version);
+*/
 };
 
 } // namespace Kernel

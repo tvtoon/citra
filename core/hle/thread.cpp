@@ -6,7 +6,7 @@
 #include <list>
 #include <unordered_map>
 #include <vector>
-#include <boost/serialization/string.hpp>
+//#include <boost/serialization/string.hpp>
 #include "common/archives.h"
 #include "common/assert.h"
 #include "common/common_types.h"
@@ -29,7 +29,7 @@
 SERIALIZE_EXPORT_IMPL(Kernel::Thread)
 
 namespace Kernel {
-
+/*
 template <class Archive>
 void Thread::serialize(Archive& ar, const unsigned int file_version) {
     ar& boost::serialization::base_object<WaitObject>(*this);
@@ -60,7 +60,7 @@ void Thread::serialize(Archive& ar, const unsigned int file_version) {
     ar& name;
     ar& wakeup_callback;
 }
-
+*/
 SERIALIZE_IMPL(Thread)
 
 bool Thread::ShouldWait(const Thread* thread) const {

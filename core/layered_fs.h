@@ -9,10 +9,12 @@
 #include <string>
 #include <unordered_map>
 #include <vector>
+/*
 #include <boost/serialization/base_object.hpp>
 #include <boost/serialization/export.hpp>
 #include <boost/serialization/shared_ptr.hpp>
 #include <boost/serialization/string.hpp>
+*/
 #include "common/common_types.h"
 #include "common/swap.h"
 #include "romfs_reader.h"
@@ -129,7 +131,7 @@ private:
     u64 current_data_offset{};           // current assigned data offset
 
     LayeredFS();
-
+/*
     template <class Archive>
     void serialize(Archive& ar, const unsigned int) {
         ar& boost::serialization::base_object<RomFSReader>(*this);
@@ -143,8 +145,9 @@ private:
         // NOTE: Everything else is essentially cached, updated when we call Load
     }
     friend class boost::serialization::access;
+*/
 };
 
 } // namespace FileSys
 
-BOOST_CLASS_EXPORT_KEY(FileSys::LayeredFS)
+//BOOST_CLASS_EXPORT_KEY(FileSys::LayeredFS)

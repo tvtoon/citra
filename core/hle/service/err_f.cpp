@@ -19,7 +19,7 @@
                       // of its many headers.
 
 SERIALIZE_EXPORT_IMPL(Service::ERR::ERR_F)
-
+/*
 namespace boost::serialization {
 template <class Archive>
 void load_construct_data(Archive& ar, Service::ERR::ERR_F* t, const unsigned int) {
@@ -29,7 +29,7 @@ void load_construct_data(Archive& ar, Service::ERR::ERR_F* t, const unsigned int
 template void load_construct_data<iarchive>(iarchive& ar, Service::ERR::ERR_F* t,
                                             const unsigned int);
 } // namespace boost::serialization
-
+*/
 namespace Service::ERR {
 
 enum class FatalErrType : u32 {

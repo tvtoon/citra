@@ -17,6 +17,7 @@ private:
 };
 
 } // namespace Service::BOSS
-
+/*
 BOOST_CLASS_EXPORT_KEY(Service::BOSS::BOSS_U)
 BOOST_SERIALIZATION_CONSTRUCT(Service::BOSS::BOSS_U)
+*/

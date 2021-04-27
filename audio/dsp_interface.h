@@ -6,7 +6,7 @@
 
 #include <memory>
 #include <vector>
-#include <boost/serialization/access.hpp>
+//#include <boost/serialization/access.hpp>
 #include "audio_types.h"
 #include "time_stretch.h"
 #include "common/common_types.h"
@@ -114,10 +114,11 @@ private:
     Common::RingBuffer<s16, 0x2000, 2> fifo;
     std::array<s16, 2> last_frame{};
     TimeStretcher time_stretcher;
-
+/*
     template <class Archive>
     void serialize(Archive& ar, const unsigned int) {}
     friend class boost::serialization::access;
+*/
 };
 
 } // namespace AudioCore

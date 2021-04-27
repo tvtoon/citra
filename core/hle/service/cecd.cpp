@@ -1,9 +1,10 @@
 // Copyright 2015 Citra Emulator Project
 // Licensed under GPLv2 or any later version
 // Refer to the license.txt file included.
-
+/*
 #include <boost/serialization/shared_ptr.hpp>
 #include <boost/serialization/unique_ptr.hpp>
+*/
 #include <cryptopp/base64.h>
 #include <cryptopp/hmac.h>
 #include <cryptopp/sha.h>
@@ -32,13 +33,14 @@ SERIALIZE_EXPORT_IMPL(Service::CECD::Module)
 SERIALIZE_EXPORT_IMPL(Service::CECD::Module::SessionData)
 
 namespace Service::CECD {
-
+/*
 template <class Archive>
 void Module::serialize(Archive& ar, const unsigned int) {
     ar& cecd_system_save_data_archive;
     ar& cecinfo_event;
     ar& change_state_event;
 }
+*/
 SERIALIZE_IMPL(Module)
 
 using CecDataPathType = Module::CecDataPathType;

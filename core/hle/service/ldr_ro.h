@@ -16,6 +16,7 @@ struct ClientSlot : public Kernel::SessionRequestHandler::SessionDataBase {
     VAddr loaded_crs = 0; ///< the virtual address of the static module
 
 private:
+/*
     template <class Archive>
     void serialize(Archive& ar, const unsigned int) {
         ar& boost::serialization::base_object<Kernel::SessionRequestHandler::SessionDataBase>(
@@ -23,6 +24,7 @@ private:
         ar& loaded_crs;
     }
     friend class boost::serialization::access;
+*/
 };
 
 class RO final : public ServiceFramework<RO, ClientSlot> {
@@ -162,11 +164,13 @@ private:
     Core::System& system;
 
 private:
+/*
     template <class Archive>
     void serialize(Archive& ar, const unsigned int) {
         ar& boost::serialization::base_object<Kernel::SessionRequestHandler>(*this);
     }
     friend class boost::serialization::access;
+*/
 };
 
 void InstallInterfaces(Core::System& system);
@@ -174,5 +178,7 @@ void InstallInterfaces(Core::System& system);
 } // namespace Service::LDR
 
 SERVICE_CONSTRUCT(Service::LDR::RO)
+/*
 BOOST_CLASS_EXPORT_KEY(Service::LDR::RO)
 BOOST_CLASS_EXPORT_KEY(Service::LDR::ClientSlot)
+*/

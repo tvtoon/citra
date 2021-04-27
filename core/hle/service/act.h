@@ -25,9 +25,11 @@ public:
     };
 
 private:
+/*
     template <class Archive>
     void serialize(Archive& ar, const unsigned int file_version) {}
     friend class boost::serialization::access;
+*/
 };
 
 void InstallInterfaces(Core::System& system);

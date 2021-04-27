@@ -6,8 +6,10 @@
 
 #include <memory>
 #include <string>
+/*
 #include <boost/serialization/export.hpp>
 #include <boost/serialization/string.hpp>
+*/
 #include "archive_backend.h"
 #include "core/hle/result.h"
 
@@ -31,13 +33,15 @@ private:
     std::string mount_point;
 
     ArchiveSource_SDSaveData() = default;
+/*
     template <class Archive>
     void serialize(Archive& ar, const unsigned int) {
         ar& mount_point;
     }
     friend class boost::serialization::access;
+*/
 };
 
 } // namespace FileSys
 
-BOOST_CLASS_EXPORT_KEY(FileSys::ArchiveSource_SDSaveData)
+//BOOST_CLASS_EXPORT_KEY(FileSys::ArchiveSource_SDSaveData)

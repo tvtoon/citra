@@ -24,7 +24,7 @@
 SERVICE_CONSTRUCT_IMPL(Service::CAM::Module)
 
 namespace Service::CAM {
-
+/*
 template <class Archive>
 void Module::serialize(Archive& ar, const unsigned int file_version) {
     ar& cameras;
@@ -49,7 +49,7 @@ void Module::serialize(Archive& ar, const unsigned int file_version) {
         }
     }
 }
-
+*/
 SERIALIZE_IMPL(Module)
 
 // built-in resolution parameters

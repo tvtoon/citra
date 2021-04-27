@@ -7,8 +7,10 @@
 #include <cstddef>
 #include <memory>
 #include <string>
+/*
 #include <boost/serialization/base_object.hpp>
 #include <boost/serialization/shared_ptr.hpp>
+*/
 #include "common/bit_field.h"
 #include "common/common_types.h"
 #include "../event.h"
@@ -203,6 +205,7 @@ public:
     bool registered = false;
 
 private:
+/*
     template <class Archive>
     void serialize(Archive& ar, const unsigned int) {
         ar& boost::serialization::base_object<Kernel::SessionRequestHandler::SessionDataBase>(
@@ -213,6 +216,7 @@ private:
         ar& registered;
     }
     friend class boost::serialization::access;
+*/
 };
 
 class GSP_GPU final : public ServiceFramework<GSP_GPU, SessionData> {
@@ -445,7 +449,7 @@ private:
     std::array<bool, MaxGSPThreads> used_thread_ids = {false, false, false, false};
 
     friend class SessionData;
-
+/*
     template <class Archive>
     void serialize(Archive& ar, const unsigned int) {
         ar& boost::serialization::base_object<Kernel::SessionRequestHandler>(*this);
@@ -456,12 +460,15 @@ private:
     }
 
     friend class boost::serialization::access;
+*/
 };
 
 ResultCode SetBufferSwap(u32 screen_id, const FrameBufferInfo& info);
 
 } // namespace Service::GSP
 
+/*
 BOOST_CLASS_EXPORT_KEY(Service::GSP::SessionData)
 BOOST_CLASS_EXPORT_KEY(Service::GSP::GSP_GPU)
+*/
 SERVICE_CONSTRUCT(Service::GSP::GSP_GPU)

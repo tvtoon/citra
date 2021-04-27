@@ -250,6 +250,7 @@ public:
         std::unique_ptr<FileSys::FileBackend> file;
 
     private:
+/*
         template <class Archive>
         void serialize(Archive& ar, const unsigned int) {
             ar& boost::serialization::base_object<Kernel::SessionRequestHandler::SessionDataBase>(
@@ -261,6 +262,7 @@ public:
             ar& file;
         }
         friend class boost::serialization::access;
+*/
     };
 
     class Interface : public ServiceFramework<Interface, SessionData> {
@@ -626,10 +628,11 @@ private:
     std::shared_ptr<Kernel::Event> change_state_event;
 
     Core::System& system;
-
+/*
     template <class Archive>
     void serialize(Archive& ar, const unsigned int);
     friend class boost::serialization::access;
+*/
 };
 
 /// Initialize CECD service(s)
@@ -638,5 +641,7 @@ void InstallInterfaces(Core::System& system);
 } // namespace Service::CECD
 
 SERVICE_CONSTRUCT(Service::CECD::Module)
+/*
 BOOST_CLASS_EXPORT_KEY(Service::CECD::Module)
 BOOST_CLASS_EXPORT_KEY(Service::CECD::Module::SessionData)
+*/

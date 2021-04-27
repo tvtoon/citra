@@ -6,10 +6,12 @@
 
 #include <memory>
 #include <string>
+/*
 #include <boost/serialization/base_object.hpp>
 #include <boost/serialization/export.hpp>
 #include <boost/serialization/shared_ptr.hpp>
 #include <boost/serialization/string.hpp>
+*/
 #include "common/common_types.h"
 #include "kernel.h"
 #include "wait_object.h"
@@ -62,7 +64,7 @@ public:
 
 private:
     KernelSystem& kernel;
-
+/*
     friend class boost::serialization::access;
     template <class Archive>
     void serialize(Archive& ar, const unsigned int file_version) {
@@ -72,6 +74,7 @@ private:
         ar& name;
         ar& holding_thread;
     }
+*/
 };
 
 /**
@@ -81,6 +84,7 @@ private:
 void ReleaseThreadMutexes(Thread* thread);
 
 } // namespace Kernel
-
+/*
 BOOST_CLASS_EXPORT_KEY(Kernel::Mutex)
 CONSTRUCT_KERNEL_OBJECT(Kernel::Mutex)
+*/

@@ -5,8 +5,10 @@
 #pragma once
 
 #include <array>
+/*
 #include <boost/serialization/array.hpp>
 #include <boost/serialization/split_member.hpp>
+*/
 #include "common/bit_field.h"
 #include "common/common_types.h"
 #include "common/vector_math.h"
@@ -17,17 +19,20 @@
 #include "shader.h"
 #include "video_core.h"
 
+
 // Boost::serialization doesn't like union types for some reason,
 // so we need to mark arrays of union values with a special serialization method
 template <typename Value, size_t Size>
 struct UnionArray : public std::array<Value, Size> {
 private:
+/*
     template <class Archive>
     void serialize(Archive& ar, const unsigned int) {
         static_assert(sizeof(Value) == sizeof(u32));
         ar&* static_cast<u32(*)[Size]>(static_cast<void*>(this->data()));
     }
     friend class boost::serialization::access;
+*/
 };
 
 namespace Pica {
@@ -98,6 +103,7 @@ struct State {
         UnionArray<ColorDifferenceEntry, 256> color_diff_table;
 
     private:
+/*
         friend class boost::serialization::access;
         template <class Archive>
         void serialize(Archive& ar, const unsigned int file_version) {
@@ -107,6 +113,7 @@ struct State {
             ar& color_table;
             ar& color_diff_table;
         }
+*/
     } proctex;
 
     struct Lighting {
@@ -177,6 +184,7 @@ struct State {
         bool reset_geometry_pipeline = true;
 
     private:
+/*
         friend class boost::serialization::access;
         template <class Archive>
         void serialize(Archive& ar, const unsigned int file_version) {
@@ -184,7 +192,7 @@ struct State {
             ar& current_attribute;
             ar& reset_geometry_pipeline;
         }
-
+*/
     } immediate;
 
     // the geometry shader needs to be kept in the global state because some shaders relie on
@@ -207,6 +215,7 @@ struct State {
     std::array<u32, 3> default_attr_write_buffer{};
 
 private:
+/*
     friend class boost::serialization::access;
     template <class Archive>
     void serialize(Archive& ar, const unsigned int file_version) {
@@ -248,6 +257,7 @@ private:
             reinterpret_cast<u32*>(VideoCore::g_memory->GetPhysicalPointer(cmd_list.addr));
         cmd_list.current_ptr = cmd_list.head_ptr + offset;
     }
+*/
 };
 
 extern State g_state; ///< Current Pica state

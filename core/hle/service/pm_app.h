@@ -19,4 +19,4 @@ private:
 
 } // namespace Service::PM
 
-BOOST_CLASS_EXPORT_KEY(Service::PM::PM_APP)
+//BOOST_CLASS_EXPORT_KEY(Service::PM::PM_APP)

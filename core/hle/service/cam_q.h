@@ -18,4 +18,4 @@ private:
 
 } // namespace Service::CAM
 
-BOOST_CLASS_EXPORT_KEY(Service::CAM::CAM_Q)
+//BOOST_CLASS_EXPORT_KEY(Service::CAM::CAM_Q)

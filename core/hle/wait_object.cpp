@@ -16,7 +16,7 @@
 #include "timer.h"
 
 namespace Kernel {
-
+/*
 template <class Archive>
 void WaitObject::serialize(Archive& ar, const unsigned int file_version) {
     ar& boost::serialization::base_object<Object>(*this);
@@ -24,6 +24,7 @@ void WaitObject::serialize(Archive& ar, const unsigned int file_version) {
     // NB: hle_notifier *not* serialized since it's a callback!
     // Fortunately it's only used in one place (DSP) so we can reconstruct it there
 }
+*/
 SERIALIZE_IMPL(WaitObject)
 
 void WaitObject::AddWaitingThread(std::shared_ptr<Thread> thread) {

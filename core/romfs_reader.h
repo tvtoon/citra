@@ -1,9 +1,11 @@
 #pragma once
 
 #include <array>
+/*
 #include <boost/serialization/array.hpp>
 #include <boost/serialization/base_object.hpp>
 #include <boost/serialization/export.hpp>
+*/
 #include "common/common_types.h"
 #include "common/file_util.h"
 
@@ -20,9 +22,11 @@ public:
     virtual std::size_t ReadFile(std::size_t offset, std::size_t length, u8* buffer) = 0;
 
 private:
+/*
     template <class Archive>
     void serialize(Archive& ar, const unsigned int file_version) {}
     friend class boost::serialization::access;
+*/
 };
 
 /**
@@ -58,7 +62,7 @@ private:
     u64 data_size;
 
     DirectRomFSReader() = default;
-
+/*
     template <class Archive>
     void serialize(Archive& ar, const unsigned int) {
         ar& boost::serialization::base_object<RomFSReader>(*this);
@@ -71,8 +75,9 @@ private:
         ar& data_size;
     }
     friend class boost::serialization::access;
+*/
 };
 
 } // namespace FileSys
 
-BOOST_CLASS_EXPORT_KEY(FileSys::DirectRomFSReader)
+//BOOST_CLASS_EXPORT_KEY(FileSys::DirectRomFSReader)

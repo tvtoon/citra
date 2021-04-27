@@ -6,9 +6,11 @@
 
 #include <cstddef>
 #include <memory>
+/*
 #include <boost/serialization/shared_ptr.hpp>
 #include <boost/serialization/split_member.hpp>
 #include <boost/serialization/version.hpp>
+*/
 #include "common/common_types.h"
 #include "arm_regformat.h"
 #include "asm_vfp.h"
@@ -27,6 +29,7 @@ public:
     virtual ~ARM_Interface() {}
 
     class ThreadContext {
+/*
         friend class boost::serialization::access;
 
         template <class Archive>
@@ -69,6 +72,7 @@ public:
         }
 
         BOOST_SERIALIZATION_SPLIT_MEMBER()
+*/
     public:
         virtual ~ThreadContext() = default;
 
@@ -248,7 +252,7 @@ protected:
 
 private:
     u32 id;
-
+/*
     friend class boost::serialization::access;
 
     template <class Archive>
@@ -343,7 +347,9 @@ private:
     }
 
     BOOST_SERIALIZATION_SPLIT_MEMBER()
+*/
 };
-
+/*
 BOOST_CLASS_VERSION(ARM_Interface, 1)
 BOOST_CLASS_VERSION(ARM_Interface::ThreadContext, 1)
+*/

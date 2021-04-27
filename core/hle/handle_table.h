@@ -7,8 +7,10 @@
 #include <array>
 #include <cstddef>
 #include <memory>
+/*
 #include <boost/serialization/array.hpp>
 #include <boost/serialization/shared_ptr.hpp>
+*/
 #include "common/common_types.h"
 #include "object.h"
 #include "core/hle/result.h"
@@ -118,7 +120,7 @@ private:
     u16 next_free_slot;
 
     KernelSystem& kernel;
-
+/*
     friend class boost::serialization::access;
     template <class Archive>
     void serialize(Archive& ar, const unsigned int file_version) {
@@ -127,6 +129,7 @@ private:
         ar& next_generation;
         ar& next_free_slot;
     }
+*/
 };
 
 } // namespace Kernel

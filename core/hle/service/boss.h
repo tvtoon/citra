@@ -5,7 +5,7 @@
 #pragma once
 
 #include <memory>
-#include <boost/serialization/shared_ptr.hpp>
+//#include <boost/serialization/shared_ptr.hpp>
 #include "core/global.h"
 #include "../event.h"
 #include "core/hle/service/service.h"
@@ -962,7 +962,7 @@ public:
         u8 ns_data_new_flag;
         u8 ns_data_new_flag_privileged;
         u8 output_flag;
-
+/*
         template <class Archive>
         void serialize(Archive& ar, const unsigned int) {
             ar& new_arrival_flag;
@@ -971,25 +971,29 @@ public:
             ar& output_flag;
         }
         friend class boost::serialization::access;
+*/
     };
 
 private:
     std::shared_ptr<Kernel::Event> task_finish_event;
-
+/*
     template <class Archive>
     void serialize(Archive& ar, const unsigned int) {
         ar& task_finish_event;
     }
     friend class boost::serialization::access;
+*/
 };
 
 void InstallInterfaces(Core::System& system);
 
 } // namespace Service::BOSS
 
+/*
 namespace boost::serialization {
 template <class Archive>
 void load_construct_data(Archive& ar, Service::BOSS::Module* t, const unsigned int) {
     ::new (t) Service::BOSS::Module(Core::Global<Core::System>());
 }
 } // namespace boost::serialization
+*/

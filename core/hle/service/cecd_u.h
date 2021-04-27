@@ -17,6 +17,7 @@ private:
 };
 
 } // namespace Service::CECD
-
+/*
 BOOST_CLASS_EXPORT_KEY(Service::CECD::CECD_U)
 BOOST_SERIALIZATION_CONSTRUCT(Service::CECD::CECD_U)
+*/

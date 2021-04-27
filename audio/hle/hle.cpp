@@ -1,12 +1,13 @@
 // Copyright 2017 Citra Emulator Project
 // Licensed under GPLv2 or any later version
 // Refer to the license.txt file included.
-
+/*
 #include <boost/serialization/array.hpp>
 #include <boost/serialization/base_object.hpp>
 #include <boost/serialization/shared_ptr.hpp>
 #include <boost/serialization/vector.hpp>
 #include <boost/serialization/weak_ptr.hpp>
+*/
 #include "../audio_types.h"
 #ifdef HAVE_MF
 #include "wmf_decoder.h"
@@ -39,12 +40,13 @@ using Service::DSP::DSP_DSP;
 namespace AudioCore {
 
 DspHle::DspHle() : DspHle(Core::System::GetInstance().Memory()) {}
-
+/*
 template <class Archive>
 void DspHle::serialize(Archive& ar, const unsigned int) {
     ar& boost::serialization::base_object<DspInterface>(*this);
     ar&* impl.get();
 }
+*/
 SERIALIZE_IMPL(DspHle)
 
 // The value below is the "perfect" mathematical ratio of ARM11 cycles per audio frame, samples per
@@ -103,7 +105,7 @@ private:
     std::unique_ptr<HLE::DecoderBase> decoder{};
 
     std::weak_ptr<DSP_DSP> dsp_dsp{};
-
+/*
     template <class Archive>
     void serialize(Archive& ar, const unsigned int) {
         ar& dsp_state;
@@ -114,6 +116,7 @@ private:
         ar& dsp_dsp;
     }
     friend class boost::serialization::access;
+*/
 };
 
 DspHle::Impl::Impl(DspHle& parent_, Memory::MemorySystem& memory) : parent(parent_) {

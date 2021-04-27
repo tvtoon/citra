@@ -9,8 +9,10 @@
 #include <memory>
 #include <string>
 #include <vector>
+/*
 #include <boost/serialization/array.hpp>
 #include <boost/serialization/vector.hpp>
+*/
 #include "common/common_types.h"
 #include "common/memory_ref.h"
 #include "core/mmio.h"
@@ -57,6 +59,7 @@ struct SpecialRegion {
     MMIORegionPointer handler;
 
 private:
+/*
     template <class Archive>
     void serialize(Archive& ar, const unsigned int file_version) {
         ar& base;
@@ -64,6 +67,7 @@ private:
         ar& handler;
     }
     friend class boost::serialization::access;
+*/
 };
 
 /**
@@ -132,6 +136,7 @@ struct PageTable {
     void Clear();
 
 private:
+/*
     template <class Archive>
     void serialize(Archive& ar, const unsigned int) {
         ar& pointers.refs;
@@ -142,6 +147,7 @@ private:
         }
     }
     friend class boost::serialization::access;
+*/
 };
 
 /// Physical memory regions as seen from the ARM11
@@ -397,11 +403,11 @@ private:
     class Impl;
 
     std::unique_ptr<Impl> impl;
-
+/*
     friend class boost::serialization::access;
     template <class Archive>
     void serialize(Archive& ar, const unsigned int file_version);
-
+*/
 public:
     template <Region R>
     class BackingMemImpl;
@@ -411,8 +417,9 @@ public:
 bool IsValidVirtualAddress(const Kernel::Process& process, VAddr vaddr);
 
 } // namespace Memory
-
+/*
 BOOST_CLASS_EXPORT_KEY(Memory::MemorySystem::BackingMemImpl<Memory::Region::FCRAM>)
 BOOST_CLASS_EXPORT_KEY(Memory::MemorySystem::BackingMemImpl<Memory::Region::VRAM>)
 BOOST_CLASS_EXPORT_KEY(Memory::MemorySystem::BackingMemImpl<Memory::Region::DSP>)
 BOOST_CLASS_EXPORT_KEY(Memory::MemorySystem::BackingMemImpl<Memory::Region::N3DS>)
+*/

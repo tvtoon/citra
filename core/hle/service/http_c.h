@@ -66,6 +66,7 @@ struct ClientCertContext {
     std::vector<u8> private_key;
 
 private:
+/*
     template <class Archive>
     void serialize(Archive& ar, const unsigned int) {
         ar& handle;
@@ -75,6 +76,7 @@ private:
         ar& private_key;
     }
     friend class boost::serialization::access;
+*/
 };
 
 /// Represents a root certificate chain, it contains a list of DER-encoded certificates for
@@ -88,6 +90,7 @@ struct RootCertChain {
         std::vector<u8> certificate;
 
     private:
+/*
         template <class Archive>
         void serialize(Archive& ar, const unsigned int) {
             ar& handle;
@@ -95,6 +98,7 @@ struct RootCertChain {
             ar& certificate;
         }
         friend class boost::serialization::access;
+*/
     };
 
     using Handle = u32;
@@ -103,6 +107,7 @@ struct RootCertChain {
     std::vector<RootCACert> certificates;
 
 private:
+/*
     template <class Archive>
     void serialize(Archive& ar, const unsigned int) {
         ar& handle;
@@ -110,6 +115,7 @@ private:
         ar& certificates;
     }
     friend class boost::serialization::access;
+*/
 };
 
 /// Represents an HTTP context.
@@ -130,6 +136,7 @@ public:
         u16 port;
 
     private:
+/*
         template <class Archive>
         void serialize(Archive& ar, const unsigned int) {
             ar& url;
@@ -138,6 +145,7 @@ public:
             ar& port;
         }
         friend class boost::serialization::access;
+*/
     };
 
     struct BasicAuth {
@@ -145,12 +153,14 @@ public:
         std::string password;
 
     private:
+/*
         template <class Archive>
         void serialize(Archive& ar, const unsigned int) {
             ar& username;
             ar& password;
         }
         friend class boost::serialization::access;
+*/
     };
 
     struct RequestHeader {
@@ -159,12 +169,14 @@ public:
         std::string value;
 
     private:
+/*
         template <class Archive>
         void serialize(Archive& ar, const unsigned int) {
             ar& name;
             ar& value;
         }
         friend class boost::serialization::access;
+*/
     };
 
     struct PostData {
@@ -175,12 +187,14 @@ public:
         std::string value;
 
     private:
+/*
         template <class Archive>
         void serialize(Archive& ar, const unsigned int) {
             ar& name;
             ar& value;
         }
         friend class boost::serialization::access;
+*/
     };
 
     struct SSLConfig {
@@ -189,6 +203,7 @@ public:
         std::weak_ptr<RootCertChain> root_ca_chain;
 
     private:
+/*
         template <class Archive>
         void serialize(Archive& ar, const unsigned int) {
             ar& options;
@@ -196,6 +211,7 @@ public:
             ar& root_ca_chain;
         }
         friend class boost::serialization::access;
+*/
     };
 
     Handle handle;
@@ -235,6 +251,7 @@ struct SessionData : public Kernel::SessionRequestHandler::SessionDataBase {
     bool initialized = false;
 
 private:
+/*
     template <class Archive>
     void serialize(Archive& ar, const unsigned int) {
         ar& boost::serialization::base_object<Kernel::SessionRequestHandler::SessionDataBase>(
@@ -246,6 +263,7 @@ private:
         ar& initialized;
     }
     friend class boost::serialization::access;
+*/
 };
 
 class HTTP_C final : public ServiceFramework<HTTP_C, SessionData> {
@@ -434,6 +452,7 @@ private:
     } ClCertA;
 
 private:
+/*
     template <class Archive>
     void serialize(Archive& ar, const unsigned int) {
         // NOTE: Serialization of the HTTP service is on a 'best effort' basis.
@@ -450,11 +469,13 @@ private:
         // handles to ongoing HTTP requests.) Serializing across HTTP contexts will break.
     }
     friend class boost::serialization::access;
+*/
 };
 
 void InstallInterfaces(Core::System& system);
 
 } // namespace Service::HTTP
-
+/*
 BOOST_CLASS_EXPORT_KEY(Service::HTTP::HTTP_C)
 BOOST_CLASS_EXPORT_KEY(Service::HTTP::SessionData)
+*/

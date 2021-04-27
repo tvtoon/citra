@@ -7,9 +7,11 @@
 #include <functional>
 #include <memory>
 #include <vector>
+/*
 #include <boost/serialization/base_object.hpp>
 #include <boost/serialization/shared_ptr.hpp>
 #include <boost/serialization/vector.hpp>
+*/
 #include "common/common_types.h"
 #include "object.h"
 
@@ -67,9 +69,11 @@ private:
     std::function<void()> hle_notifier;
 
 private:
+/*
     friend class boost::serialization::access;
     template <class Archive>
     void serialize(Archive& ar, const unsigned int file_version);
+*/
 };
 
 // Specialization of DynamicObjectCast for WaitObjects

@@ -5,9 +5,11 @@
 #pragma once
 
 #include <memory>
+/*
 #include <boost/serialization/array.hpp>
 #include <boost/serialization/base_object.hpp>
 #include <boost/serialization/shared_ptr.hpp>
+*/
 #include "../../../audio/dsp_interface.h"
 #include "../event.h"
 #include "core/hle/result.h"
@@ -267,7 +269,7 @@ private:
 
     /// Each DSP pipe has an associated interrupt
     std::array<std::shared_ptr<Kernel::Event>, AudioCore::num_dsp_pipe> pipes = {{}};
-
+/*
     template <class Archive>
     void serialize(Archive& ar, const unsigned int) {
         ar& boost::serialization::base_object<Kernel::SessionRequestHandler>(*this);
@@ -278,11 +280,12 @@ private:
         ar& pipes;
     }
     friend class boost::serialization::access;
+*/
 };
 
 void InstallInterfaces(Core::System& system);
 
 } // namespace Service::DSP
 
-BOOST_CLASS_EXPORT_KEY(Service::DSP::DSP_DSP)
+//BOOST_CLASS_EXPORT_KEY(Service::DSP::DSP_DSP)
 SERVICE_CONSTRUCT(Service::DSP::DSP_DSP)

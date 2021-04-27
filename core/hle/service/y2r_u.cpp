@@ -18,7 +18,7 @@ SERVICE_CONSTRUCT_IMPL(Service::Y2R::Y2R_U)
 SERIALIZE_EXPORT_IMPL(Service::Y2R::Y2R_U)
 
 namespace Service::Y2R {
-
+/*
 template <class Archive>
 void Y2R_U::serialize(Archive& ar, const unsigned int) {
     ar& boost::serialization::base_object<Kernel::SessionRequestHandler>(*this);
@@ -29,7 +29,7 @@ void Y2R_U::serialize(Archive& ar, const unsigned int) {
     ar& transfer_end_interrupt_enabled;
     ar& spacial_dithering_enabled;
 }
-
+*/
 constexpr std::array<CoefficientSet, 4> standard_coefficients{{
     {{0x100, 0x166, 0xB6, 0x58, 0x1C5, -0x166F, 0x10EE, -0x1C5B}}, // ITU_Rec601
     {{0x100, 0x193, 0x77, 0x2F, 0x1DB, -0x1933, 0xA7C, -0x1D51}},  // ITU_Rec709

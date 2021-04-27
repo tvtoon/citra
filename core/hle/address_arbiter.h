@@ -6,12 +6,14 @@
 
 #include <memory>
 #include <vector>
+/*
 #include <boost/serialization/base_object.hpp>
 #include <boost/serialization/export.hpp>
 #include <boost/serialization/shared_ptr.hpp>
 #include <boost/serialization/string.hpp>
 #include <boost/serialization/vector.hpp>
 #include <boost/serialization/version.hpp>
+*/
 #include "common/common_types.h"
 #include "object.h"
 #include "thread.h"
@@ -87,7 +89,7 @@ private:
         void WakeUp(ThreadWakeupReason reason, std::shared_ptr<Thread> thread,
                     std::shared_ptr<WaitObject> object) override {}
     };
-
+/*
     friend class boost::serialization::access;
     template <class Archive>
     void serialize(Archive& ar, const unsigned int file_version) {
@@ -106,11 +108,13 @@ private:
             ar& timeout_callback;
         }
     }
+*/
 };
 
 } // namespace Kernel
-
+/*
 BOOST_CLASS_EXPORT_KEY(Kernel::AddressArbiter)
 BOOST_CLASS_EXPORT_KEY(Kernel::AddressArbiter::Callback)
 BOOST_CLASS_VERSION(Kernel::AddressArbiter, 2)
 CONSTRUCT_KERNEL_OBJECT(Kernel::AddressArbiter)
+*/

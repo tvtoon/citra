@@ -15,7 +15,7 @@ SERVICE_CONSTRUCT_IMPL(Service::NFC::Module)
 SERIALIZE_EXPORT_IMPL(Service::NFC::Module)
 
 namespace Service::NFC {
-
+/*
 template <class Archive>
 void Module::serialize(Archive& ar, const unsigned int) {
     ar& tag_in_range_event;
@@ -25,6 +25,7 @@ void Module::serialize(Archive& ar, const unsigned int) {
     ar& amiibo_data;
     ar& amiibo_in_range;
 }
+*/
 SERIALIZE_IMPL(Module)
 
 struct TagInfo {

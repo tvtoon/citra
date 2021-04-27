@@ -18,4 +18,4 @@ private:
 
 } // namespace Service::NWM
 
-BOOST_CLASS_EXPORT_KEY(Service::NWM::NWM_INF)
+//BOOST_CLASS_EXPORT_KEY(Service::NWM::NWM_INF)

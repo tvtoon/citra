@@ -17,6 +17,7 @@ private:
 };
 
 } // namespace Service::HID
-
+/*
 BOOST_CLASS_EXPORT_KEY(Service::HID::Spvr)
 BOOST_SERIALIZATION_CONSTRUCT(Service::HID::Spvr)
+*/

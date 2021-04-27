@@ -1,9 +1,10 @@
 // Copyright 2015 Citra Emulator Project
 // Licensed under GPLv2 or any later version
 // Refer to the license.txt file included.
-
+/*
 #include <boost/serialization/base_object.hpp>
 #include <boost/serialization/shared_ptr.hpp>
+*/
 #include "common/archives.h"
 #include "core/core.h"
 #include "core/core_timing.h"
@@ -19,7 +20,7 @@ SERIALIZE_EXPORT_IMPL(Service::IR::IR_RST)
 SERVICE_CONSTRUCT_IMPL(Service::IR::IR_RST)
 
 namespace Service::IR {
-
+/*
 template <class Archive>
 void IR_RST::serialize(Archive& ar, const unsigned int) {
     ar& boost::serialization::base_object<Kernel::SessionRequestHandler>(*this);
@@ -31,7 +32,7 @@ void IR_RST::serialize(Archive& ar, const unsigned int) {
     // update_callback_id and input devices are set separately
     ReloadInputDevices();
 }
-
+*/
 struct PadDataEntry {
     PadState current_state;
     PadState delta_additions;

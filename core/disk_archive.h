@@ -8,9 +8,11 @@
 #include <memory>
 #include <string>
 #include <vector>
+/*
 #include <boost/serialization/base_object.hpp>
 #include <boost/serialization/unique_ptr.hpp>
 #include <boost/serialization/vector.hpp>
+*/
 #include "common/common_types.h"
 #include "common/file_util.h"
 #include "archive_backend.h"
@@ -49,7 +51,7 @@ protected:
 
 private:
     DiskFile() = default;
-
+/*
     template <class Archive>
     void serialize(Archive& ar, const unsigned int) {
         ar& boost::serialization::base_object<FileBackend>(*this);
@@ -57,6 +59,7 @@ private:
         ar& file;
     }
     friend class boost::serialization::access;
+*/
 };
 
 class DiskDirectory : public DirectoryBackend {
@@ -82,7 +85,7 @@ protected:
 
 private:
     DiskDirectory() = default;
-
+/*
     template <class Archive>
     void serialize(Archive& ar, const unsigned int) {
         ar& boost::serialization::base_object<DirectoryBackend>(*this);
@@ -97,9 +100,11 @@ private:
         }
     }
     friend class boost::serialization::access;
+*/
 };
 
 } // namespace FileSys
-
+/*
 BOOST_CLASS_EXPORT_KEY(FileSys::DiskFile)
 BOOST_CLASS_EXPORT_KEY(FileSys::DiskDirectory)
+*/

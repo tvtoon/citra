@@ -19,4 +19,4 @@ private:
 
 } // namespace Service::MVD
 
-BOOST_CLASS_EXPORT_KEY(Service::MVD::MVD_STD)
+//BOOST_CLASS_EXPORT_KEY(Service::MVD::MVD_STD)

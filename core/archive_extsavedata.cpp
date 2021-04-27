@@ -170,11 +170,13 @@ public:
 
 private:
     ExtSaveDataArchive() = default;
+/*
     template <class Archive>
     void serialize(Archive& ar, const unsigned int) {
         ar& boost::serialization::base_object<SaveDataArchive>(*this);
     }
     friend class boost::serialization::access;
+*/
 };
 
 struct ExtSaveDataArchivePath {

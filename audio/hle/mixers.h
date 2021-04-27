@@ -5,7 +5,7 @@
 #pragma once
 
 #include <array>
-#include <boost/serialization/array.hpp>
+//#include <boost/serialization/array.hpp>
 #include "../audio_types.h"
 #include "shared_memory.h"
 
@@ -55,7 +55,7 @@ private:
     void DownmixAndMixIntoCurrentFrame(float gain, const QuadFrame32& samples);
     /// INTERNAL: Generate DspStatus based on internal state.
     DspStatus GetCurrentStatus() const;
-
+/*
     template <class Archive>
     void serialize(Archive& ar, const unsigned int) {
         ar& current_frame;
@@ -66,6 +66,7 @@ private:
         ar& state.output_format;
     }
     friend class boost::serialization::access;
+*/
 };
 
 } // namespace AudioCore::HLE

@@ -8,9 +8,11 @@
 #include <cstddef>
 #include <functional>
 #include <type_traits>
+/*
 #include <boost/serialization/access.hpp>
 #include <boost/serialization/array.hpp>
 #include <boost/serialization/base_object.hpp>
+*/
 #include <nihstro/shader_bytecode.h>
 #include "common/assert.h"
 #include "common/common_funcs.h"
@@ -36,11 +38,13 @@ struct AttributeBuffer {
     alignas(16) Common::Vec4<float24> attr[16];
 
 private:
+/*
     friend class boost::serialization::access;
     template <class Archive>
     void serialize(Archive& ar, const unsigned int file_version) {
         ar& attr;
     }
+*/
 };
 
 /// Handler type for receiving vertex outputs from vertex shader or geometry shader
@@ -66,6 +70,7 @@ struct OutputVertex {
                                             const AttributeBuffer& output);
 
 private:
+/*
     template <class Archive>
     void serialize(Archive& ar, const unsigned int) {
         ar& pos;
@@ -78,6 +83,7 @@ private:
         ar& tc2;
     }
     friend class boost::serialization::access;
+*/
 };
 #define ASSERT_POS(var, pos)                                                                       \
     static_assert(offsetof(OutputVertex, var) == pos * sizeof(float24), "Semantic at wrong "       \
@@ -116,6 +122,7 @@ struct GSEmitter {
     void Emit(Common::Vec4<float24> (&output_regs)[16]);
 
 private:
+/*
     friend class boost::serialization::access;
     template <class Archive>
     void serialize(Archive& ar, const unsigned int file_version) {
@@ -126,6 +133,7 @@ private:
         ar& output_mask;
         // Handlers are ignored because they're constant
     }
+*/
 };
 static_assert(std::is_standard_layout<GSEmitter>::value, "GSEmitter is not standard layout type");
 
@@ -145,6 +153,7 @@ struct UnitState {
         alignas(16) Common::Vec4<float24> output[16];
 
     private:
+/*
         friend class boost::serialization::access;
         template <class Archive>
         void serialize(Archive& ar, const unsigned int file_version) {
@@ -152,6 +161,7 @@ struct UnitState {
             ar& temporary;
             ar& output;
         }
+*/
     } registers;
     static_assert(std::is_pod<Registers>::value, "Structure is not POD");
 
@@ -206,6 +216,7 @@ struct UnitState {
     void WriteOutput(const ShaderRegs& config, AttributeBuffer& output);
 
 private:
+/*
     friend class boost::serialization::access;
     template <class Archive>
     void serialize(Archive& ar, const unsigned int file_version) {
@@ -214,6 +225,7 @@ private:
         ar& address_registers;
         // emitter_ptr is only set by GSUnitState and is serialized there
     }
+*/
 };
 
 /**
@@ -229,12 +241,14 @@ struct GSUnitState : public UnitState {
     GSEmitter emitter;
 
 private:
+/*
     friend class boost::serialization::access;
     template <class Archive>
     void serialize(Archive& ar, const unsigned int file_version) {
         ar& boost::serialization::base_object<UnitState>(*this);
         ar& emitter;
     }
+*/
 };
 
 struct Uniforms {
@@ -258,6 +272,7 @@ struct Uniforms {
     }
 
 private:
+/*
     friend class boost::serialization::access;
     template <class Archive>
     void serialize(Archive& ar, const unsigned int file_version) {
@@ -265,6 +280,7 @@ private:
         ar& b;
         ar& i;
     }
+*/
 };
 
 struct ShaderSetup {
@@ -309,7 +325,7 @@ private:
     bool swizzle_data_hash_dirty = true;
     u64 program_code_hash = 0xDEADC0DE;
     u64 swizzle_data_hash = 0xDEADC0DE;
-
+/*
     friend class boost::serialization::access;
     template <class Archive>
     void serialize(Archive& ar, const unsigned int file_version) {
@@ -321,6 +337,7 @@ private:
         ar& program_code_hash;
         ar& swizzle_data_hash;
     }
+*/
 };
 
 class ShaderEngine {

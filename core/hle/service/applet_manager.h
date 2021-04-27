@@ -9,10 +9,12 @@
 #include <memory>
 #include <optional>
 #include <vector>
-#include <boost/serialization/array.hpp>
 #include <boost/serialization/optional.hpp>
+/*
+#include <boost/serialization/array.hpp>
 #include <boost/serialization/shared_ptr.hpp>
 #include <boost/serialization/vector.hpp>
+*/
 #include "core/global.h"
 #include "../event.h"
 #include "core/hle/result.h"
@@ -92,6 +94,7 @@ struct MessageParameter {
     std::vector<u8> buffer;
 
 private:
+/*
     template <class Archive>
     void serialize(Archive& ar, const unsigned int) {
         ar& sender_id;
@@ -101,6 +104,7 @@ private:
         ar& buffer;
     }
     friend class boost::serialization::access;
+*/
 };
 
 /// Holds information about the parameters used in StartLibraryApplet
@@ -167,6 +171,7 @@ public:
         u64 source_program_id = std::numeric_limits<u64>::max();
 
     private:
+/*
         template <class Archive>
         void serialize(Archive& ar, const unsigned int) {
             ar& param;
@@ -174,6 +179,7 @@ public:
             ar& source_program_id;
         }
         friend class boost::serialization::access;
+*/
     };
 
     ResultCode DoApplicationJump(DeliverArg arg);
@@ -204,6 +210,7 @@ public:
         FS::MediaType current_media_type;
 
     private:
+/*
         template <class Archive>
         void serialize(Archive& ar, const unsigned int file_version) {
             ar& next_title_id;
@@ -215,6 +222,7 @@ public:
             ar& current_media_type;
         }
         friend class boost::serialization::access;
+*/
     };
 
     ApplicationJumpParameters GetApplicationJumpParameters() const {
@@ -256,6 +264,7 @@ private:
         }
 
     private:
+/*
         template <class Archive>
         void serialize(Archive& ar, const unsigned int) {
             ar& applet_id;
@@ -268,6 +277,7 @@ private:
             ar& parameter_event;
         }
         friend class boost::serialization::access;
+*/
     };
 
     ApplicationJumpParameters app_jump_parameters{};
@@ -288,6 +298,7 @@ private:
     Core::System& system;
 
 private:
+/*
     template <class Archive>
     void serialize(Archive& ar, const unsigned int file_version) {
         ar& next_parameter;
@@ -299,11 +310,12 @@ private:
         ar& library_applet_closing_command;
     }
     friend class boost::serialization::access;
+*/
 };
 
 } // namespace Service::APT
-
+/*
 BOOST_CLASS_VERSION(Service::APT::AppletManager::ApplicationJumpParameters, 1)
 BOOST_CLASS_VERSION(Service::APT::AppletManager, 1)
-
+*/
 SERVICE_CONSTRUCT(Service::APT::AppletManager)

@@ -3,7 +3,7 @@
 // Refer to the license.txt file included.
 
 #pragma once
-
+/*
 #include <boost/archive/binary_iarchive.hpp>
 #include <boost/archive/binary_oarchive.hpp>
 #include <boost/serialization/export.hpp>
@@ -19,3 +19,6 @@ using oarchive = boost::archive::binary_oarchive;
     BOOST_CLASS_EXPORT_IMPLEMENT(A)                                                                \
     BOOST_SERIALIZATION_REGISTER_ARCHIVE(iarchive)                                                 \
     BOOST_SERIALIZATION_REGISTER_ARCHIVE(oarchive)
+*/
+#define SERIALIZE_IMPL(A)
+#define SERIALIZE_EXPORT_IMPL(A)

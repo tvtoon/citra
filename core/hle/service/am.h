@@ -9,9 +9,11 @@
 #include <memory>
 #include <string>
 #include <vector>
+/*
 #include <boost/serialization/array.hpp>
 #include <boost/serialization/shared_ptr.hpp>
 #include <boost/serialization/vector.hpp>
+*/
 #include "common/common_types.h"
 #include "common/construct.h"
 #include "../../cia_container.h"
@@ -584,7 +586,7 @@ private:
     bool cia_installing = false;
     std::array<std::vector<u64_le>, 3> am_title_list;
     std::shared_ptr<Kernel::Mutex> system_updater_mutex;
-
+/*
     template <class Archive>
     void serialize(Archive& ar, const unsigned int) {
         ar& cia_installing;
@@ -602,10 +604,11 @@ private:
 
     friend class ::construct_access;
     friend class boost::serialization::access;
+*/
 };
 
 void InstallInterfaces(Core::System& system);
 
 } // namespace Service::AM
 
-BOOST_SERIALIZATION_CONSTRUCT(Service::AM::Module);
+//BOOST_SERIALIZATION_CONSTRUCT(Service::AM::Module);

@@ -55,9 +55,11 @@ public:
     virtual bool Close() const = 0;
 
 private:
+/*
     template <class Archive>
     void serialize(Archive& ar, const unsigned int) {}
     friend class boost::serialization::access;
+*/
 };
 
 } // namespace FileSys

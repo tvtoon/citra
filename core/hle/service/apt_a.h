@@ -17,6 +17,7 @@ private:
 };
 
 } // namespace Service::APT
-
+/*
 BOOST_CLASS_EXPORT_KEY(Service::APT::APT_A)
 BOOST_SERIALIZATION_CONSTRUCT(Service::APT::APT_A)
+*/

@@ -3,9 +3,10 @@
 // Refer to the license.txt file included.
 
 #pragma once
-
+/*
 #include <boost/serialization/base_object.hpp>
 #include <boost/serialization/shared_ptr.hpp>
+*/
 #include "archive_source_sd_savedata.h"
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -32,14 +33,16 @@ private:
     std::shared_ptr<ArchiveSource_SDSaveData> sd_savedata_source;
 
     ArchiveFactory_SaveData() = default;
+/*
     template <class Archive>
     void serialize(Archive& ar, const unsigned int) {
         ar& boost::serialization::base_object<ArchiveFactory>(*this);
         ar& sd_savedata_source;
     }
     friend class boost::serialization::access;
+*/
 };
 
 } // namespace FileSys
 
-BOOST_CLASS_EXPORT_KEY(FileSys::ArchiveFactory_SaveData)
+//BOOST_CLASS_EXPORT_KEY(FileSys::ArchiveFactory_SaveData)

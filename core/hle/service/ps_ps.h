@@ -234,4 +234,4 @@ void InstallInterfaces(Core::System& system);
 
 } // namespace Service::PS
 
-BOOST_CLASS_EXPORT_KEY(Service::PS::PS_PS)
+//BOOST_CLASS_EXPORT_KEY(Service::PS::PS_PS)

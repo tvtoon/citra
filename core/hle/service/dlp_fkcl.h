@@ -19,4 +19,4 @@ private:
 
 } // namespace Service::DLP
 
-BOOST_CLASS_EXPORT_KEY(Service::DLP::DLP_FKCL)
+//BOOST_CLASS_EXPORT_KEY(Service::DLP::DLP_FKCL)

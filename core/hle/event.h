@@ -3,10 +3,11 @@
 // Refer to the license.txt file included.
 
 #pragma once
-
+/*
 #include <boost/serialization/base_object.hpp>
 #include <boost/serialization/export.hpp>
 #include <boost/serialization/string.hpp>
+*/
 #include "common/common_types.h"
 #include "object.h"
 #include "wait_object.h"
@@ -52,7 +53,7 @@ private:
     std::string name; ///< Name of event (optional)
 
     friend class KernelSystem;
-
+/*
     friend class boost::serialization::access;
     template <class Archive>
     void serialize(Archive& ar, const unsigned int file_version) {
@@ -61,9 +62,11 @@ private:
         ar& signaled;
         ar& name;
     }
+*/
 };
 
 } // namespace Kernel
-
+/*
 BOOST_CLASS_EXPORT_KEY(Kernel::Event)
 CONSTRUCT_KERNEL_OBJECT(Kernel::Event)
+*/

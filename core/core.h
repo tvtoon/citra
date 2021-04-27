@@ -7,7 +7,7 @@
 #include <memory>
 #include <mutex>
 #include <string>
-#include <boost/serialization/version.hpp>
+//#include <boost/serialization/version.hpp>
 #include "common/common_types.h"
 #include "core/custom_tex_cache.h"
 #include "frontend/mii_selector.h"
@@ -378,10 +378,11 @@ private:
     std::mutex signal_mutex;
     Signal current_signal;
     u32 signal_param;
-
+/*
     friend class boost::serialization::access;
     template <typename Archive>
     void serialize(Archive& ar, const unsigned int file_version);
+*/
 };
 
 [[nodiscard]] inline ARM_Interface& GetRunningCore() {
@@ -402,4 +403,4 @@ private:
 
 } // namespace Core
 
-BOOST_CLASS_VERSION(Core::System, 1)
+//BOOST_CLASS_VERSION(Core::System, 1)

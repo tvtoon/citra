@@ -14,12 +14,13 @@ include make/cpplib
 #cryptopp
 # OpenSSL (?crypto?), lurlparser, json-headers, cpp-jwt, and httplib for WEBSERVICE!
 # -DENABLE_WEB_SERVICE -DCPPHTTPLIB_OPENSSL_SUPPORT
+#
 ELIBFLAGS += `pkg-config --libs --static libavcodec libavformat libavutil libswscale libswresample libzstd sdl2`
-ELIBFLAGS += -lboost_serialization
+#ELIBFLAGS += -lboost_serialization
 ELIBFLAGS += -lcryptopp -ldynarmic -lteakra
 #ELIBFLAGS += /usr/local/lib64/libcryptopp.a /usr/local/lib64/libdynarmic.a /usr/local/lib64/libteakra.a
 # ENET ONLY
-CFLAGS = -DHAS_FCNTL=1 -DHAS_GETADDRINFO=1 -DHAS_GETHOSTBYADDR_R=1 -DHAS_GETHOSTBYNAME_R=1 -DHAS_GETNAMEINFO=1 -DHAS_INET_NTOP=1 -DHAS_INET_PTON=1 -DHAS_MSGHDR_FLAGS=1 -DHAS_POLL=1 -DHAS_SOCKLEN_T=1
+#CFLAGS = -DHAS_FCNTL=1 -DHAS_GETADDRINFO=1 -DHAS_GETHOSTBYADDR_R=1 -DHAS_GETHOSTBYNAME_R=1 -DHAS_GETNAMEINFO=1 -DHAS_INET_NTOP=1 -DHAS_INET_PTON=1 -DHAS_MSGHDR_FLAGS=1 -DHAS_POLL=1 -DHAS_SOCKLEN_T=1
 CFLAGS += -DARCHITECTURE_x86_64 -DHAVE_FFMPEG -Iexternals -Iexternals/soundtouch -I. -O2 -Wall -Wextra -std=c++17 -o
 
 DATA =
@@ -69,7 +70,7 @@ SRC += common/x64/cpu_detect.cpp
 
 ## INPUT
 SRC += input/analog_from_button.cpp input/keyboard.cpp input/main.cpp input/motion_emu.cpp input/touch_from_button.cpp
-SRC += input/client.cpp input/protocol.cpp input/udp.cpp
+#SRC += input/client.cpp input/protocol.cpp input/udp.cpp
 #if(SDL2_FOUND)
 SRC += input/sdl.cpp input/sdl_impl.cpp
 
@@ -83,7 +84,8 @@ SRC += core/arm_dyncom.cpp core/arm_dyncom_dec.cpp core/arm_dyncom_interpreter.c
 
 SRC += core/hle/service/ac.cpp core/hle/service/ac_i.cpp core/hle/service/ac_u.cpp core/hle/service/act.cpp core/hle/service/act_a.cpp core/hle/service/act_u.cpp core/hle/service/am.cpp core/hle/service/am_app.cpp core/hle/service/am_net.cpp core/hle/service/am_sys.cpp core/hle/service/am_u.cpp core/hle/service/applet_manager.cpp core/hle/service/apt.cpp core/hle/service/apt_a.cpp core/hle/service/apt_s.cpp core/hle/service/apt_u.cpp core/hle/service/ns.cpp core/hle/service/ns_s.cpp core/hle/service/bcfnt.cpp core/hle/service/boss.cpp core/hle/service/boss_p.cpp core/hle/service/boss_u.cpp core/hle/service/cam.cpp core/hle/service/cam_c.cpp core/hle/service/cam_q.cpp core/hle/service/cam_s.cpp core/hle/service/cam_u.cpp core/hle/service/cecd.cpp core/hle/service/cecd_ndm.cpp core/hle/service/cecd_s.cpp core/hle/service/cecd_u.cpp core/hle/service/cfg.cpp core/hle/service/cfg_i.cpp core/hle/service/cfg_nor.cpp core/hle/service/cfg_s.cpp core/hle/service/cfg_u.cpp core/hle/service/csnd_snd.cpp core/hle/service/dlp.cpp core/hle/service/dlp_clnt.cpp core/hle/service/dlp_fkcl.cpp core/hle/service/dlp_srvr.cpp core/hle/service/dsp_dsp.cpp core/hle/service/err_f.cpp core/hle/service/frd.cpp core/hle/service/frd_a.cpp core/hle/service/frd_u.cpp core/hle/service/archive.cpp core/hle/service/directory.cpp core/hle/service/file.cpp core/hle/service/fs_user.cpp core/hle/service/gsp.cpp core/hle/service/gsp_gpu.cpp core/hle/service/gsp_lcd.cpp core/hle/service/hid.cpp core/hle/service/hid_spvr.cpp core/hle/service/hid_user.cpp core/hle/service/http_c.cpp core/hle/service/extra_hid.cpp core/hle/service/ir.cpp core/hle/service/ir_rst.cpp core/hle/service/ir_u.cpp core/hle/service/ir_user.cpp core/hle/service/cro_helper.cpp core/hle/service/ldr_ro.cpp core/hle/service/mic_u.cpp core/hle/service/mvd.cpp core/hle/service/mvd_std.cpp core/hle/service/ndm_u.cpp core/hle/service/news.cpp core/hle/service/news_s.cpp core/hle/service/news_u.cpp core/hle/service/nfc.cpp core/hle/service/nfc_m.cpp core/hle/service/nfc_u.cpp core/hle/service/nim.cpp core/hle/service/nim_aoc.cpp core/hle/service/nim_s.cpp core/hle/service/nim_u.cpp core/hle/service/pm.cpp core/hle/service/pm_app.cpp core/hle/service/pm_dbg.cpp core/hle/service/ps_ps.cpp core/hle/service/ptm.cpp core/hle/service/ptm_gets.cpp core/hle/service/ptm_play.cpp core/hle/service/ptm_sets.cpp core/hle/service/ptm_sysm.cpp core/hle/service/ptm_u.cpp core/hle/service/dev.cpp core/hle/service/pxi.cpp core/hle/service/qtm.cpp core/hle/service/qtm_c.cpp core/hle/service/qtm_s.cpp core/hle/service/qtm_sp.cpp core/hle/service/qtm_u.cpp core/hle/service/service.cpp core/hle/service/sm.cpp core/hle/service/srv.cpp core/hle/service/soc_u.cpp core/hle/service/ssl_c.cpp core/hle/service/y2r_u.cpp
 
-SRC += core/arithmetic128.cpp core/ccm.cpp core/key.cpp core/gpu.cpp core/hw.cpp core/lcd.cpp core/rsa.cpp core/y2r.cpp core/3dsx.cpp core/elf.cpp core/loader.cpp core/ncch.cpp core/smdh.cpp core/memory.cpp core/movie.cpp core/perf_stats.cpp core/savestate.cpp core/settings.cpp core/telemetry_session.cpp core/recorder.cpp
+SRC += core/arithmetic128.cpp core/ccm.cpp core/key.cpp core/gpu.cpp core/hw.cpp core/lcd.cpp core/rsa.cpp core/y2r.cpp core/3dsx.cpp core/elf.cpp core/loader.cpp core/ncch.cpp core/smdh.cpp core/memory.cpp core/movie.cpp core/perf_stats.cpp core/settings.cpp core/telemetry_session.cpp core/recorder.cpp
+# The boost virus: core/savestate.cpp
 # These are for retarded scripting backdoor...
 # core/packet.cpp core/rpc_server.cpp core/server.cpp core/udp_server.cpp
 

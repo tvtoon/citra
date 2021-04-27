@@ -155,9 +155,11 @@ protected:
     std::shared_ptr<Kernel::Event> disconnect_event;
 
 private:
+/*
     template <class Archive>
     void serialize(Archive& ar, const unsigned int file_version);
     friend class boost::serialization::access;
+*/
 };
 
 void InstallInterfaces(Core::System& system);

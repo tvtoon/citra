@@ -6,7 +6,7 @@
 #include <memory>
 #include <stdexcept>
 #include <utility>
-#include <boost/serialization/array.hpp>
+//#include <boost/serialization/array.hpp>
 #include "../audio/dsp_interface.h"
 #include "../audio/hle/hle.h"
 #include "../audio/lle.h"
@@ -115,6 +115,7 @@ System::ResultStatus System::RunLoop(bool tight_loop) {
         return ResultStatus::ShutdownRequested;
     case Signal::Load: {
         LOG_INFO(Core, "Begin load");
+/*
         try {
             System::LoadState(param);
             LOG_INFO(Core, "Load completed");
@@ -123,11 +124,13 @@ System::ResultStatus System::RunLoop(bool tight_loop) {
             status_details = e.what();
             return ResultStatus::ErrorSavestate;
         }
+*/
         frame_limiter.WaitOnce();
         return ResultStatus::Success;
     }
     case Signal::Save: {
         LOG_INFO(Core, "Begin save");
+/*
         try {
             System::SaveState(param);
             LOG_INFO(Core, "Save completed");
@@ -136,6 +139,7 @@ System::ResultStatus System::RunLoop(bool tight_loop) {
             status_details = e.what();
             return ResultStatus::ErrorSavestate;
         }
+*/
         frame_limiter.WaitOnce();
         return ResultStatus::Success;
     }
@@ -584,7 +588,7 @@ void System::Reset() {
         apt->GetAppletManager()->SetDeliverArg(std::move(deliver_arg));
     }
 }
-
+/*
 template <class Archive>
 void System::serialize(Archive& ar, const unsigned int file_version) {
 
@@ -640,8 +644,9 @@ void System::serialize(Archive& ar, const unsigned int file_version) {
         cheat_engine->Connect();
         VideoCore::g_renderer->Sync();
     }
-}
 
+}
+*/
 SERIALIZE_IMPL(System)
 
 } // namespace Core

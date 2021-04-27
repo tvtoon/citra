@@ -6,7 +6,7 @@
 
 #include <cstddef>
 #include <type_traits>
-#include <boost/serialization/access.hpp>
+//#include <boost/serialization/access.hpp>
 #include "common/bit_field.h"
 #include "common/common_funcs.h"
 #include "common/common_types.h"
@@ -53,6 +53,7 @@ struct Regs {
     }
 
 private:
+/*
     template <class Archive>
     void serialize(Archive& ar, const unsigned int) {
         ar& color_fill_top.raw;
@@ -61,6 +62,7 @@ private:
         ar& backlight_bottom;
     }
     friend class boost::serialization::access;
+*/
 };
 static_assert(std::is_standard_layout<Regs>::value, "Structure does not use standard layout");
 

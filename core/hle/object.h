@@ -7,9 +7,11 @@
 #include <atomic>
 #include <memory>
 #include <string>
+/*
 #include <boost/serialization/access.hpp>
 #include <boost/serialization/assume_abstract.hpp>
 #include <boost/serialization/export.hpp>
+*/
 #include "common/common_types.h"
 #include "common/serialization/atomic.h"
 #include "core/global.h"
@@ -69,12 +71,13 @@ public:
 
 private:
     std::atomic<u32> object_id;
-
+/*
     friend class boost::serialization::access;
     template <class Archive>
     void serialize(Archive& ar, const unsigned int file_version) {
         ar& object_id;
     }
+*/
 };
 
 template <typename T>
@@ -98,7 +101,7 @@ inline std::shared_ptr<T> DynamicObjectCast(std::shared_ptr<Object> object) {
 }
 
 } // namespace Kernel
-
+/*
 BOOST_SERIALIZATION_ASSUME_ABSTRACT(Kernel::Object)
 
 #define CONSTRUCT_KERNEL_OBJECT(T)                                                                 \
@@ -108,3 +111,5 @@ BOOST_SERIALIZATION_ASSUME_ABSTRACT(Kernel::Object)
         ::new (t) T(Core::Global<Kernel::KernelSystem>());                                         \
     }                                                                                              \
     }
+*/
+#define CONSTRUCT_KERNEL_OBJECT(T)

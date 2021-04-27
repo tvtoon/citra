@@ -5,7 +5,7 @@
 #pragma once
 
 #include <memory>
-#include <boost/serialization/export.hpp>
+//#include <boost/serialization/export.hpp>
 #include "shader.h"
 
 namespace Pica {
@@ -49,14 +49,16 @@ private:
     Shader::ShaderEngine* shader_engine;
     std::unique_ptr<GeometryPipelineBackend> backend;
     State& state;
-
+/*
     template <class Archive>
     void serialize(Archive& ar, const unsigned int version);
 
     friend class boost::serialization::access;
+*/
 };
 } // namespace Pica
-
+/*
 BOOST_CLASS_EXPORT_KEY(Pica::GeometryPipeline_Point)
 BOOST_CLASS_EXPORT_KEY(Pica::GeometryPipeline_VariablePrimitive)
 BOOST_CLASS_EXPORT_KEY(Pica::GeometryPipeline_FixedPrimitive)
+*/

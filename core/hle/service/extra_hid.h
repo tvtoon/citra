@@ -6,7 +6,7 @@
 
 #include <array>
 #include <atomic>
-#include <boost/serialization/array.hpp>
+//#include <boost/serialization/array.hpp>
 #include "common/bit_field.h"
 #include "common/swap.h"
 #include "core/frontend/input.h"
@@ -66,7 +66,7 @@ private:
     std::unique_ptr<Input::ButtonDevice> zr;
     std::unique_ptr<Input::AnalogDevice> c_stick;
     std::atomic<bool> is_device_reload_pending;
-
+/*
     template <class Archive>
     void serialize(Archive& ar, const unsigned int) {
         ar& hid_period;
@@ -76,8 +76,9 @@ private:
         }
     }
     friend class boost::serialization::access;
+*/
 };
 
 } // namespace Service::IR
 
-BOOST_CLASS_EXPORT_KEY(Service::IR::ExtraHID)
+//BOOST_CLASS_EXPORT_KEY(Service::IR::ExtraHID)

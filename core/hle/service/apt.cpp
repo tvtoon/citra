@@ -1,9 +1,10 @@
 // Copyright 2015 Citra Emulator Project
 // Licensed under GPLv2 or any later version
 // Refer to the license.txt file included.
-
+/*
 #include <boost/serialization/shared_ptr.hpp>
 #include <boost/serialization/vector.hpp>
+*/
 #include "common/archives.h"
 #include "common/common_paths.h"
 #include "common/file_util.h"
@@ -33,7 +34,7 @@
 SERVICE_CONSTRUCT_IMPL(Service::APT::Module)
 
 namespace Service::APT {
-
+/*
 template <class Archive>
 void Module::serialize(Archive& ar, const unsigned int file_version) {
     ar& shared_font_mem;
@@ -49,7 +50,7 @@ void Module::serialize(Archive& ar, const unsigned int file_version) {
         ar& wireless_reboot_info;
     }
 }
-
+*/
 SERIALIZE_IMPL(Module)
 
 Module::NSInterface::NSInterface(std::shared_ptr<Module> apt, const char* name, u32 max_session)

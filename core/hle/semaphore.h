@@ -5,9 +5,11 @@
 #pragma once
 
 #include <string>
+/*
 #include <boost/serialization/base_object.hpp>
 #include <boost/serialization/export.hpp>
 #include <boost/serialization/string.hpp>
+*/
 #include <queue>
 #include "common/common_types.h"
 #include "object.h"
@@ -48,6 +50,7 @@ public:
     ResultVal<s32> Release(s32 release_count);
 
 private:
+/*
     friend class boost::serialization::access;
     template <class Archive>
     void serialize(Archive& ar, const unsigned int file_version) {
@@ -56,9 +59,11 @@ private:
         ar& available_count;
         ar& name;
     }
+*/
 };
 
 } // namespace Kernel
-
+/*
 BOOST_CLASS_EXPORT_KEY(Kernel::Semaphore)
 CONSTRUCT_KERNEL_OBJECT(Kernel::Semaphore)
+*/
