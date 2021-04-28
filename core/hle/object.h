@@ -11,9 +11,9 @@
 #include <boost/serialization/access.hpp>
 #include <boost/serialization/assume_abstract.hpp>
 #include <boost/serialization/export.hpp>
+#include "common/serialization/atomic.h"
 */
 #include "common/common_types.h"
-#include "common/serialization/atomic.h"
 #include "core/global.h"
 #include "kernel.h"
 

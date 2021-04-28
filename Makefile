@@ -21,7 +21,7 @@ ELIBFLAGS += -lcryptopp -ldynarmic -lteakra
 #ELIBFLAGS += /usr/local/lib64/libcryptopp.a /usr/local/lib64/libdynarmic.a /usr/local/lib64/libteakra.a
 # ENET ONLY
 #CFLAGS = -DHAS_FCNTL=1 -DHAS_GETADDRINFO=1 -DHAS_GETHOSTBYADDR_R=1 -DHAS_GETHOSTBYNAME_R=1 -DHAS_GETNAMEINFO=1 -DHAS_INET_NTOP=1 -DHAS_INET_PTON=1 -DHAS_MSGHDR_FLAGS=1 -DHAS_POLL=1 -DHAS_SOCKLEN_T=1
-CFLAGS += -DARCHITECTURE_x86_64 -DHAVE_FFMPEG -Iexternals -Iexternals/soundtouch -I. -O2 -Wall -Wextra -std=c++17 -o
+CFLAGS = -DARCHITECTURE_x86_64 -DHAVE_FFMPEG -Iexternals -Iexternals/soundtouch -I. -O2 -Wall -Wextra -std=c++17 -o
 
 DATA =
 DOCS =

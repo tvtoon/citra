@@ -238,7 +238,7 @@ ResultCode VMManager::ReprotectRange(VAddr target, u32 size, VMAPermission new_p
 
     return RESULT_SUCCESS;
 }
-
+/*
 void VMManager::LogLayout(Log::Level log_level) const {
     for (const auto& p : vma_map) {
         const VirtualMemoryArea& vma = p.second;
@@ -250,7 +250,7 @@ void VMManager::LogLayout(Log::Level log_level) const {
                     GetMemoryStateName(vma.meminfo_state));
     }
 }
-
+*/
 void VMManager::Unlock() {
     is_locked = false;
 }

@@ -5,9 +5,9 @@
 #include <boost/serialization/shared_ptr.hpp>
 #include <boost/serialization/unordered_map.hpp>
 #include <boost/serialization/vector.hpp>
+#include "common/serialization/atomic.h"
 */
 #include "common/archives.h"
-#include "common/serialization/atomic.h"
 #include "client_port.h"
 #include "config_mem.h"
 #include "handle_table.h"

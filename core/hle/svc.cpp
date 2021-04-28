@@ -267,7 +267,7 @@ ResultCode SVC::ControlMemory(u32* out_addr, u32 addr0, u32 addr1, u32 size, u32
         return ERR_INVALID_COMBINATION;
     }
 
-    process.vm_manager.LogLayout(Log::Level::Trace);
+//    process.vm_manager.LogLayout(Log::Level::Trace);
 
     return RESULT_SUCCESS;
 }

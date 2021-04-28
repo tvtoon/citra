@@ -6,9 +6,11 @@
 
 #include <optional>
 #include <boost/icl/interval_set.hpp>
-//#include <boost/serialization/set.hpp>
-#include "common/common_types.h"
+/*
+#include <boost/serialization/set.hpp>
 #include "common/serialization/boost_interval_set.hpp"
+*/
+#include "common/common_types.h"
 
 namespace Kernel {
 

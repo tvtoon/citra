@@ -6,7 +6,7 @@
 
 #include <memory>
 #include <string>
-#include <boost/serialization/version.hpp>
+//#include <boost/serialization/version.hpp>
 #include "../hle/mii_selector.h"
 
 namespace Frontend {

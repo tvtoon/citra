@@ -8,12 +8,12 @@
 #include <boost/serialization/array.hpp>
 #include <boost/serialization/bitset.hpp>
 #include <boost/serialization/shared_ptr.hpp>
+#include "common/serialization/boost_vector.hpp"
 */
 #include "common/archives.h"
 #include "common/assert.h"
 #include "common/common_funcs.h"
 #include "common/logging/log.h"
-#include "common/serialization/boost_vector.hpp"
 #include "errors.h"
 #include "memory.h"
 #include "process.h"
@@ -190,7 +190,7 @@ void Process::Run(s32 main_thread_priority, u32 stack_size) {
 
     status = ProcessStatus::Running;
 
-    vm_manager.LogLayout(Log::Level::Debug);
+//    vm_manager.LogLayout(Log::Level::Debug);
     Kernel::SetupMainThread(kernel, codeset->entrypoint, main_thread_priority, SharedFrom(this));
 }
 

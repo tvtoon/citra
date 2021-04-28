@@ -16,9 +16,9 @@
 #include <boost/serialization/shared_ptr.hpp>
 #include <boost/serialization/unique_ptr.hpp>
 #include <boost/serialization/vector.hpp>
+#include "common/serialization/boost_small_vector.hpp"
 */
 #include "common/common_types.h"
-#include "common/serialization/boost_small_vector.hpp"
 #include "common/swap.h"
 #include "core/hle/ipc.h"
 #include "object.h"
